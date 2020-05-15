@@ -169,6 +169,12 @@ class AnilistMediaSelect extends AnilistSelect {
 
   void withCharcters(AnilistSubquery<AnilistCharacterSelect> subSelect) =>
       add('characters', subArguments: subSelect);
+  void withoutCharacters() => remove('characters');
+
+  void withStaff(AnilistSubquery<AnilistStaffSelect> subSelect) =>
+      add('staff', subArguments: subSelect);
+  void withoutStaff() => remove('staff');
 
   void querySearch(String search) => addWhereArgument('search', search);
+  void queryGenres(List<String> genres) => addWhereArgument('genre_in', genres);
 }

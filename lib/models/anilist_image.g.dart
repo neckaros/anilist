@@ -1,23 +1,22 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'anilist_cover_image.dart';
+part of 'anilist_image.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<AnilistCoverImage> _$anilistCoverImageSerializer =
-    new _$AnilistCoverImageSerializer();
+Serializer<AnilistImage> _$anilistImageSerializer =
+    new _$AnilistImageSerializer();
 
-class _$AnilistCoverImageSerializer
-    implements StructuredSerializer<AnilistCoverImage> {
+class _$AnilistImageSerializer implements StructuredSerializer<AnilistImage> {
   @override
-  final Iterable<Type> types = const [AnilistCoverImage, _$AnilistCoverImage];
+  final Iterable<Type> types = const [AnilistImage, _$AnilistImage];
   @override
-  final String wireName = 'AnilistCoverImage';
+  final String wireName = 'AnilistImage';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, AnilistCoverImage object,
+  Iterable<Object> serialize(Serializers serializers, AnilistImage object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[];
     if (object.extraLarge != null) {
@@ -48,10 +47,9 @@ class _$AnilistCoverImageSerializer
   }
 
   @override
-  AnilistCoverImage deserialize(
-      Serializers serializers, Iterable<Object> serialized,
+  AnilistImage deserialize(Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new AnilistCoverImageBuilder();
+    final result = new AnilistImageBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -82,7 +80,7 @@ class _$AnilistCoverImageSerializer
   }
 }
 
-class _$AnilistCoverImage extends AnilistCoverImage {
+class _$AnilistImage extends AnilistImage {
   @override
   final String extraLarge;
   @override
@@ -92,25 +90,23 @@ class _$AnilistCoverImage extends AnilistCoverImage {
   @override
   final String color;
 
-  factory _$AnilistCoverImage(
-          [void Function(AnilistCoverImageBuilder) updates]) =>
-      (new AnilistCoverImageBuilder()..update(updates)).build();
+  factory _$AnilistImage([void Function(AnilistImageBuilder) updates]) =>
+      (new AnilistImageBuilder()..update(updates)).build();
 
-  _$AnilistCoverImage._({this.extraLarge, this.large, this.medium, this.color})
+  _$AnilistImage._({this.extraLarge, this.large, this.medium, this.color})
       : super._();
 
   @override
-  AnilistCoverImage rebuild(void Function(AnilistCoverImageBuilder) updates) =>
+  AnilistImage rebuild(void Function(AnilistImageBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  AnilistCoverImageBuilder toBuilder() =>
-      new AnilistCoverImageBuilder()..replace(this);
+  AnilistImageBuilder toBuilder() => new AnilistImageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is AnilistCoverImage &&
+    return other is AnilistImage &&
         extraLarge == other.extraLarge &&
         large == other.large &&
         medium == other.medium &&
@@ -126,7 +122,7 @@ class _$AnilistCoverImage extends AnilistCoverImage {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('AnilistCoverImage')
+    return (newBuiltValueToStringHelper('AnilistImage')
           ..add('extraLarge', extraLarge)
           ..add('large', large)
           ..add('medium', medium)
@@ -135,9 +131,9 @@ class _$AnilistCoverImage extends AnilistCoverImage {
   }
 }
 
-class AnilistCoverImageBuilder
-    implements Builder<AnilistCoverImage, AnilistCoverImageBuilder> {
-  _$AnilistCoverImage _$v;
+class AnilistImageBuilder
+    implements Builder<AnilistImage, AnilistImageBuilder> {
+  _$AnilistImage _$v;
 
   String _extraLarge;
   String get extraLarge => _$this._extraLarge;
@@ -155,9 +151,9 @@ class AnilistCoverImageBuilder
   String get color => _$this._color;
   set color(String color) => _$this._color = color;
 
-  AnilistCoverImageBuilder();
+  AnilistImageBuilder();
 
-  AnilistCoverImageBuilder get _$this {
+  AnilistImageBuilder get _$this {
     if (_$v != null) {
       _extraLarge = _$v.extraLarge;
       _large = _$v.large;
@@ -169,22 +165,22 @@ class AnilistCoverImageBuilder
   }
 
   @override
-  void replace(AnilistCoverImage other) {
+  void replace(AnilistImage other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$AnilistCoverImage;
+    _$v = other as _$AnilistImage;
   }
 
   @override
-  void update(void Function(AnilistCoverImageBuilder) updates) {
+  void update(void Function(AnilistImageBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$AnilistCoverImage build() {
+  _$AnilistImage build() {
     final _$result = _$v ??
-        new _$AnilistCoverImage._(
+        new _$AnilistImage._(
             extraLarge: extraLarge, large: large, medium: medium, color: color);
     replace(_$result);
     return _$result;

@@ -1,5 +1,6 @@
 import 'package:anilist/anilist_character_request.dart';
 import 'package:anilist/anilist_media_request.dart';
+import 'package:anilist/anilist_staff_request.dart';
 import 'package:anilist/models/models.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -7,6 +8,8 @@ void main() {
   test('request string', () async {
     final charSelect = AnilistCharacterSelect();
     charSelect..withNameFull();
+    final staffSelect = AnilistStaffSelect();
+    staffSelect..withNameFull();
     final request = AnilistMediaRequest();
     request
       ..withIdMal()
@@ -37,7 +40,8 @@ void main() {
       ..withTrending()
       ..withTagsId()
       ..withTagsName()
-      ..withCharcters(AnilistSubquery(charSelect, perPage: 5));
+      ..withCharcters(AnilistSubquery(charSelect, perPage: 5))
+      ..withStaff(AnilistSubquery(staffSelect, perPage: 5));
     var media = await request.byId(53390);
     print(request.query);
     print(media);
@@ -67,6 +71,8 @@ void main() {
     expect(media.tags.first.description, isNull);
     expect(media.characters.nodes, hasLength(5));
     expect(media.characters.nodes.first.name.full, isA<String>());
+    expect(media.staff.nodes, hasLength(1));
+    expect(media.staff.nodes.first.name.full, isA<String>());
   });
   test('request media query', () async {
     final request = AnilistMediaRequest();
@@ -76,7 +82,23 @@ void main() {
     request.querySearch('attack');
     var result = await request.list(10, 1);
     expect(result.results, hasLength(10));
+    expect(
+        result.results.first.title.english.toLowerCase(), contains('attack'));
     print(result);
+  });
+
+  test('request media query list', () async {
+    final request = AnilistMediaRequest();
+    request..withGenres();
+    request
+      ..querySearch('attack')
+      ..queryGenres(['comedy', 'action']);
+
+    var result = await request.list(1, 1);
+
+    expect(result.results, hasLength(1));
+    expect(result.results.first.genres, contains('Comedy'));
+    expect(result.results.first.genres, contains('Action'));
   });
   test('request character', () async {
     final request = AnilistCharacterRequest();
@@ -84,5 +106,12 @@ void main() {
     var char = await request.byId(40881);
     expect(char.name.full, equals('Mikasa Ackerman'));
     print(char);
+  });
+  test('request staff', () async {
+    final request = AnilistStaffRequest();
+    request..withName();
+    var staff = await request.byId(106705);
+    expect(staff.name.first, equals('Hajime'));
+    print(staff);
   });
 }

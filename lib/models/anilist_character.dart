@@ -15,9 +15,9 @@ abstract class AnilistCharacter
   @nullable
   int get id;
   @nullable
-  AnilistCharacterName get name;
+  AnilistName get name;
   @nullable
-  AnilistCoverImage get image;
+  AnilistImage get image;
   @nullable
   String get description;
   @nullable

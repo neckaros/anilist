@@ -28,6 +28,7 @@ class AnilistSelect {
     var value = whereArguments[key];
     if (value == null) return '';
     if (value is int || value is double) return value;
+    if (value is List<String>) return '[${value.map((e) => '"$e"').join(',')}]';
     return '"$value"';
   }
 

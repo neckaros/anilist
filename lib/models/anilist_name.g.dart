@@ -1,27 +1,21 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'anilist_character_name.dart';
+part of 'anilist_name.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<AnilistCharacterName> _$anilistCharacterNameSerializer =
-    new _$AnilistCharacterNameSerializer();
+Serializer<AnilistName> _$anilistNameSerializer = new _$AnilistNameSerializer();
 
-class _$AnilistCharacterNameSerializer
-    implements StructuredSerializer<AnilistCharacterName> {
+class _$AnilistNameSerializer implements StructuredSerializer<AnilistName> {
   @override
-  final Iterable<Type> types = const [
-    AnilistCharacterName,
-    _$AnilistCharacterName
-  ];
+  final Iterable<Type> types = const [AnilistName, _$AnilistName];
   @override
-  final String wireName = 'AnilistCharacterName';
+  final String wireName = 'AnilistName';
 
   @override
-  Iterable<Object> serialize(
-      Serializers serializers, AnilistCharacterName object,
+  Iterable<Object> serialize(Serializers serializers, AnilistName object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[];
     if (object.first != null) {
@@ -59,10 +53,9 @@ class _$AnilistCharacterNameSerializer
   }
 
   @override
-  AnilistCharacterName deserialize(
-      Serializers serializers, Iterable<Object> serialized,
+  AnilistName deserialize(Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new AnilistCharacterNameBuilder();
+    final result = new AnilistNameBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -99,7 +92,7 @@ class _$AnilistCharacterNameSerializer
   }
 }
 
-class _$AnilistCharacterName extends AnilistCharacterName {
+class _$AnilistName extends AnilistName {
   @override
   final String first;
   @override
@@ -111,27 +104,24 @@ class _$AnilistCharacterName extends AnilistCharacterName {
   @override
   final BuiltList<String> alternative;
 
-  factory _$AnilistCharacterName(
-          [void Function(AnilistCharacterNameBuilder) updates]) =>
-      (new AnilistCharacterNameBuilder()..update(updates)).build();
+  factory _$AnilistName([void Function(AnilistNameBuilder) updates]) =>
+      (new AnilistNameBuilder()..update(updates)).build();
 
-  _$AnilistCharacterName._(
+  _$AnilistName._(
       {this.first, this.last, this.full, this.native, this.alternative})
       : super._();
 
   @override
-  AnilistCharacterName rebuild(
-          void Function(AnilistCharacterNameBuilder) updates) =>
+  AnilistName rebuild(void Function(AnilistNameBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  AnilistCharacterNameBuilder toBuilder() =>
-      new AnilistCharacterNameBuilder()..replace(this);
+  AnilistNameBuilder toBuilder() => new AnilistNameBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is AnilistCharacterName &&
+    return other is AnilistName &&
         first == other.first &&
         last == other.last &&
         full == other.full &&
@@ -149,7 +139,7 @@ class _$AnilistCharacterName extends AnilistCharacterName {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('AnilistCharacterName')
+    return (newBuiltValueToStringHelper('AnilistName')
           ..add('first', first)
           ..add('last', last)
           ..add('full', full)
@@ -159,9 +149,8 @@ class _$AnilistCharacterName extends AnilistCharacterName {
   }
 }
 
-class AnilistCharacterNameBuilder
-    implements Builder<AnilistCharacterName, AnilistCharacterNameBuilder> {
-  _$AnilistCharacterName _$v;
+class AnilistNameBuilder implements Builder<AnilistName, AnilistNameBuilder> {
+  _$AnilistName _$v;
 
   String _first;
   String get first => _$this._first;
@@ -185,9 +174,9 @@ class AnilistCharacterNameBuilder
   set alternative(ListBuilder<String> alternative) =>
       _$this._alternative = alternative;
 
-  AnilistCharacterNameBuilder();
+  AnilistNameBuilder();
 
-  AnilistCharacterNameBuilder get _$this {
+  AnilistNameBuilder get _$this {
     if (_$v != null) {
       _first = _$v.first;
       _last = _$v.last;
@@ -200,24 +189,24 @@ class AnilistCharacterNameBuilder
   }
 
   @override
-  void replace(AnilistCharacterName other) {
+  void replace(AnilistName other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$AnilistCharacterName;
+    _$v = other as _$AnilistName;
   }
 
   @override
-  void update(void Function(AnilistCharacterNameBuilder) updates) {
+  void update(void Function(AnilistNameBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$AnilistCharacterName build() {
-    _$AnilistCharacterName _$result;
+  _$AnilistName build() {
+    _$AnilistName _$result;
     try {
       _$result = _$v ??
-          new _$AnilistCharacterName._(
+          new _$AnilistName._(
               first: first,
               last: last,
               full: full,
@@ -230,7 +219,7 @@ class AnilistCharacterNameBuilder
         _alternative?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'AnilistCharacterName', _$failedField, e.toString());
+            'AnilistName', _$failedField, e.toString());
       }
       rethrow;
     }

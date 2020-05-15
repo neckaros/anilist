@@ -5,11 +5,8 @@ import 'models/models.dart';
 
 part 'serializers.g.dart';
 
-@SerializersFor(const [
-  AnilistMedia,
-  AnilistCharacter,
-  AnilistPageInfo,
-])
+@SerializersFor(
+    const [AnilistMedia, AnilistCharacter, AnilistPageInfo, AnilistStaff])
 final Serializers serializers = (_$serializers.toBuilder()
       ..addBuilderFactory(
           // add this builder factory
@@ -19,6 +16,10 @@ final Serializers serializers = (_$serializers.toBuilder()
           // add this builder factory
           const FullType(BuiltList, [FullType(AnilistCharacter)]),
           () => new ListBuilder<AnilistCharacter>())
+      ..addBuilderFactory(
+          // add this builder factory
+          const FullType(BuiltList, [FullType(AnilistStaff)]),
+          () => new ListBuilder<AnilistStaff>())
       ..addPlugin(StandardJsonPlugin()))
     .build();
 

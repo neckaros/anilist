@@ -1,4 +1,3 @@
-import 'package:built_collection/built_collection.dart';
 import 'package:dio/dio.dart';
 
 import 'models/models.dart';
@@ -22,6 +21,7 @@ class AnilistMediaRequest extends AnilistMediaSelect {
   }
 
   Future<AnilistMedia> byId(int id) async {
+    print(query);
     var response = await client.post('', data: {
       "query": query,
       "variables": {'id': id}
@@ -30,10 +30,9 @@ class AnilistMediaRequest extends AnilistMediaSelect {
     return AnilistMedia.fromJson(media);
   }
 
-  Future<AnilistQueryResult> list(int perPage, int page) async {
+  Future<AnilistQueryResult<AnilistMedia>> list(int perPage, int page) async {
     this.page = page;
     this.perPage = perPage;
-    print(whereQuery);
     var response = await client.post('', data: {
       "query": whereQuery,
     });

@@ -56,7 +56,7 @@ abstract class AnilistMedia
   @nullable
   int get updatedAt;
   @nullable
-  AnilistCoverImage get coverImage;
+  AnilistImage get coverImage;
   @nullable
   String get bannerImage;
   @nullable
@@ -79,6 +79,8 @@ abstract class AnilistMedia
   BuiltList<AnilistTag> get tags;
   @nullable
   AnilistConnection<AnilistCharacter, AnilistCharacter> get characters;
+  @nullable
+  AnilistConnection<AnilistStaff, AnilistStaff> get staff;
 
   static const FullType specifiedType =
       const FullType(BuiltList, const [const FullType(AnilistMedia)]);

@@ -152,7 +152,7 @@ class _$AnilistMediaSerializer implements StructuredSerializer<AnilistMedia> {
       result
         ..add('coverImage')
         ..add(serializers.serialize(object.coverImage,
-            specifiedType: const FullType(AnilistCoverImage)));
+            specifiedType: const FullType(AnilistImage)));
     }
     if (object.bannerImage != null) {
       result
@@ -224,6 +224,15 @@ class _$AnilistMediaSerializer implements StructuredSerializer<AnilistMedia> {
             specifiedType: const FullType(AnilistConnection, const [
               const FullType(AnilistCharacter),
               const FullType(AnilistCharacter)
+            ])));
+    }
+    if (object.staff != null) {
+      result
+        ..add('staff')
+        ..add(serializers.serialize(object.staff,
+            specifiedType: const FullType(AnilistConnection, const [
+              const FullType(AnilistStaff),
+              const FullType(AnilistStaff)
             ])));
     }
     return result;
@@ -335,8 +344,7 @@ class _$AnilistMediaSerializer implements StructuredSerializer<AnilistMedia> {
           break;
         case 'coverImage':
           result.coverImage.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(AnilistCoverImage))
-              as AnilistCoverImage);
+              specifiedType: const FullType(AnilistImage)) as AnilistImage);
           break;
         case 'bannerImage':
           result.bannerImage = serializers.deserialize(value,
@@ -391,6 +399,13 @@ class _$AnilistMediaSerializer implements StructuredSerializer<AnilistMedia> {
                 const FullType(AnilistCharacter)
               ])) as AnilistConnection<AnilistCharacter, AnilistCharacter>);
           break;
+        case 'staff':
+          result.staff.replace(serializers.deserialize(value,
+              specifiedType: const FullType(AnilistConnection, const [
+                const FullType(AnilistStaff),
+                const FullType(AnilistStaff)
+              ])) as AnilistConnection<AnilistStaff, AnilistStaff>);
+          break;
       }
     }
 
@@ -444,7 +459,7 @@ class _$AnilistMedia extends AnilistMedia {
   @override
   final int updatedAt;
   @override
-  final AnilistCoverImage coverImage;
+  final AnilistImage coverImage;
   @override
   final String bannerImage;
   @override
@@ -467,6 +482,8 @@ class _$AnilistMedia extends AnilistMedia {
   final BuiltList<AnilistTag> tags;
   @override
   final AnilistConnection<AnilistCharacter, AnilistCharacter> characters;
+  @override
+  final AnilistConnection<AnilistStaff, AnilistStaff> staff;
 
   factory _$AnilistMedia([void Function(AnilistMediaBuilder) updates]) =>
       (new AnilistMediaBuilder()..update(updates)).build();
@@ -505,7 +522,8 @@ class _$AnilistMedia extends AnilistMedia {
       this.trending,
       this.favourites,
       this.tags,
-      this.characters})
+      this.characters,
+      this.staff})
       : super._() {
     if (id == null) {
       throw new BuiltValueNullFieldError('AnilistMedia', 'id');
@@ -556,7 +574,8 @@ class _$AnilistMedia extends AnilistMedia {
         trending == other.trending &&
         favourites == other.favourites &&
         tags == other.tags &&
-        characters == other.characters;
+        characters == other.characters &&
+        staff == other.staff;
   }
 
   @override
@@ -579,26 +598,26 @@ class _$AnilistMedia extends AnilistMedia {
                                                                 $jc(
                                                                     $jc(
                                                                         $jc(
-                                                                            $jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc(0, id.hashCode), idMal.hashCode), title.hashCode), type.hashCode), format.hashCode), status.hashCode), description.hashCode), startDate.hashCode), endDate.hashCode), season.hashCode), seasonYear.hashCode), seasonInt.hashCode), episodes.hashCode), duration.hashCode), chapters.hashCode),
-                                                                                volumes.hashCode),
-                                                                            countryOfOrigin.hashCode),
-                                                                        isLicensed.hashCode),
-                                                                    source.hashCode),
-                                                                hashtag.hashCode),
-                                                            trailer.hashCode),
-                                                        updatedAt.hashCode),
-                                                    coverImage.hashCode),
-                                                bannerImage.hashCode),
-                                            genres.hashCode),
-                                        synonyms.hashCode),
-                                    averageScore.hashCode),
-                                meanScore.hashCode),
-                            popularity.hashCode),
-                        isLocked.hashCode),
-                    trending.hashCode),
-                favourites.hashCode),
-            tags.hashCode),
-        characters.hashCode));
+                                                                            $jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc(0, id.hashCode), idMal.hashCode), title.hashCode), type.hashCode), format.hashCode), status.hashCode), description.hashCode), startDate.hashCode), endDate.hashCode), season.hashCode), seasonYear.hashCode), seasonInt.hashCode), episodes.hashCode), duration.hashCode), chapters.hashCode), volumes.hashCode),
+                                                                                countryOfOrigin.hashCode),
+                                                                            isLicensed.hashCode),
+                                                                        source.hashCode),
+                                                                    hashtag.hashCode),
+                                                                trailer.hashCode),
+                                                            updatedAt.hashCode),
+                                                        coverImage.hashCode),
+                                                    bannerImage.hashCode),
+                                                genres.hashCode),
+                                            synonyms.hashCode),
+                                        averageScore.hashCode),
+                                    meanScore.hashCode),
+                                popularity.hashCode),
+                            isLocked.hashCode),
+                        trending.hashCode),
+                    favourites.hashCode),
+                tags.hashCode),
+            characters.hashCode),
+        staff.hashCode));
   }
 
   @override
@@ -637,7 +656,8 @@ class _$AnilistMedia extends AnilistMedia {
           ..add('trending', trending)
           ..add('favourites', favourites)
           ..add('tags', tags)
-          ..add('characters', characters))
+          ..add('characters', characters)
+          ..add('staff', staff))
         .toString();
   }
 }
@@ -738,10 +758,10 @@ class AnilistMediaBuilder
   int get updatedAt => _$this._updatedAt;
   set updatedAt(int updatedAt) => _$this._updatedAt = updatedAt;
 
-  AnilistCoverImageBuilder _coverImage;
-  AnilistCoverImageBuilder get coverImage =>
-      _$this._coverImage ??= new AnilistCoverImageBuilder();
-  set coverImage(AnilistCoverImageBuilder coverImage) =>
+  AnilistImageBuilder _coverImage;
+  AnilistImageBuilder get coverImage =>
+      _$this._coverImage ??= new AnilistImageBuilder();
+  set coverImage(AnilistImageBuilder coverImage) =>
       _$this._coverImage = coverImage;
 
   String _bannerImage;
@@ -795,6 +815,13 @@ class AnilistMediaBuilder
               characters) =>
       _$this._characters = characters;
 
+  AnilistConnectionBuilder<AnilistStaff, AnilistStaff> _staff;
+  AnilistConnectionBuilder<AnilistStaff, AnilistStaff> get staff =>
+      _$this._staff ??=
+          new AnilistConnectionBuilder<AnilistStaff, AnilistStaff>();
+  set staff(AnilistConnectionBuilder<AnilistStaff, AnilistStaff> staff) =>
+      _$this._staff = staff;
+
   AnilistMediaBuilder();
 
   AnilistMediaBuilder get _$this {
@@ -833,6 +860,7 @@ class AnilistMediaBuilder
       _favourites = _$v.favourites;
       _tags = _$v.tags?.toBuilder();
       _characters = _$v.characters?.toBuilder();
+      _staff = _$v.staff?.toBuilder();
       _$v = null;
     }
     return this;
@@ -890,7 +918,8 @@ class AnilistMediaBuilder
               trending: trending,
               favourites: favourites,
               tags: _tags?.build(),
-              characters: _characters?.build());
+              characters: _characters?.build(),
+              staff: _staff?.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -917,6 +946,8 @@ class AnilistMediaBuilder
         _tags?.build();
         _$failedField = 'characters';
         _characters?.build();
+        _$failedField = 'staff';
+        _staff?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'AnilistMedia', _$failedField, e.toString());
