@@ -13,6 +13,7 @@ abstract class AnilistConnection<N, E>
   String? get pageInfo;
 
   AnilistConnection._();
-  factory AnilistConnection([void Function(AnilistConnectionBuilder) updates]) =
-      _$AnilistConnection;
+  factory AnilistConnection(
+          [void Function(AnilistConnectionBuilder<N, E>)? updates]) =
+      _$AnilistConnection<N, E>;
 }

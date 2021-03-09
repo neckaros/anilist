@@ -96,16 +96,70 @@ void main() {
     expect(result.results?.first.genres, contains('Comedy'));
     expect(result.results?.first.genres, contains('Action'));
   });
+
+  test('request media query list type', () async {
+    final request = AnilistMediaRequest();
+    request
+      ..withType()
+      ..queryType(AnilistMediaType.MANGA)
+      ..querySearch('attack');
+
+    var result = await request.list(10, 1);
+    expect(result.results, hasLength(10));
+    expect(
+        result.results!.every((m) => m.type == AnilistMediaType.MANGA), isTrue);
+  });
+
+  test('request media query sort', () async {
+    final request = AnilistMediaRequest();
+    request..withTitle();
+    request
+      ..querySearch('attack')
+      ..queryGenres(['comedy', 'action'])
+      ..sort([AnilistMediaSort.TITLE_ENGLISH]);
+
+    var result = await request.list(10, 1);
+    expect(result.results, hasLength(greaterThan(1)));
+    var first = result.results?.first;
+
+    request..sort([AnilistMediaSort.SEARCH_MATCH]);
+
+    result = await request.list(10, 1);
+    expect(result.results, hasLength(greaterThan(1)));
+
+    var second = result.results?.first;
+
+    expect(first, isNot(equals(second)));
+  });
+
   test('request character', () async {
     final request = AnilistCharacterRequest();
     request..withName();
     var char = await request.byId(40881);
     expect(char.name?.full, equals('Mikasa Ackerman'));
   });
+  test('search character', () async {
+    final request = AnilistCharacterRequest();
+    request
+      ..withName()
+      ..querySearch('Mikasa Ackerman');
+    var char = await request.list(1, 1);
+    expect(char.results?.first.name?.full, equals('Mikasa Ackerman'));
+  });
   test('request staff', () async {
     final request = AnilistStaffRequest();
     request..withName();
     var staff = await request.byId(106705);
     expect(staff.name?.first, equals('Hajime'));
+  });
+  test('request staff search', () async {
+    final request = AnilistStaffRequest();
+    request
+      ..withName()
+      ..withImage()
+      ..querySearch('akira');
+
+    var staffs = await request.list(100, 1);
+    expect(staffs.results?.first.name?.first, equals('Akira'));
   });
 }

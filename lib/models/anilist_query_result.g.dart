@@ -40,7 +40,7 @@ class _$AnilistQueryResultSerializer
       result
         ..add('results')
         ..add(serializers.serialize(value,
-            specifiedType: new FullType(ListBuilder, [parameterE])));
+            specifiedType: new FullType(BuiltList, [parameterE])));
     }
     return result;
   }
@@ -72,9 +72,9 @@ class _$AnilistQueryResultSerializer
               as AnilistPageInfo);
           break;
         case 'results':
-          result.results = serializers.deserialize(value,
-                  specifiedType: new FullType(ListBuilder, [parameterE]))
-              as ListBuilder<Object>;
+          result.results.replace(serializers.deserialize(value,
+                  specifiedType: new FullType(BuiltList, [parameterE]))
+              as BuiltList<Object>);
           break;
       }
     }
@@ -87,7 +87,7 @@ class _$AnilistQueryResult<E> extends AnilistQueryResult<E> {
   @override
   final AnilistPageInfo? pageInfo;
   @override
-  final ListBuilder<E>? results;
+  final BuiltList<E>? results;
 
   factory _$AnilistQueryResult(
           [void Function(AnilistQueryResultBuilder<E>)? updates]) =>
@@ -140,7 +140,7 @@ class AnilistQueryResultBuilder<E>
   set pageInfo(AnilistPageInfoBuilder? pageInfo) => _$this._pageInfo = pageInfo;
 
   ListBuilder<E>? _results;
-  ListBuilder<E>? get results => _$this._results;
+  ListBuilder<E> get results => _$this._results ??= new ListBuilder<E>();
   set results(ListBuilder<E>? results) => _$this._results = results;
 
   AnilistQueryResultBuilder();
@@ -149,7 +149,7 @@ class AnilistQueryResultBuilder<E>
     final $v = _$v;
     if ($v != null) {
       _pageInfo = $v.pageInfo?.toBuilder();
-      _results = $v.results;
+      _results = $v.results?.toBuilder();
       _$v = null;
     }
     return this;
@@ -172,12 +172,14 @@ class AnilistQueryResultBuilder<E>
     try {
       _$result = _$v ??
           new _$AnilistQueryResult<E>._(
-              pageInfo: _pageInfo?.build(), results: results);
+              pageInfo: _pageInfo?.build(), results: _results?.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'pageInfo';
         _pageInfo?.build();
+        _$failedField = 'results';
+        _results?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'AnilistQueryResult', _$failedField, e.toString());

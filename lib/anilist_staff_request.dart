@@ -1,8 +1,9 @@
+import 'package:anilist/anilist_request.dart';
 import 'package:dio/dio.dart';
 
 import 'models/models.dart';
 
-class AnilistStaffRequest extends AnilistStaffSelect {
+class AnilistStaffRequest extends AnilistStaffSelect with AnilistRequest {
   Dio client;
 
   AnilistStaffRequest({Dio? client})
@@ -27,5 +28,9 @@ class AnilistStaffRequest extends AnilistStaffSelect {
     });
     var char = response.data['data'][name];
     return AnilistStaff.fromJson(char);
+  }
+
+  Future<AnilistQueryResult<AnilistStaff>> list(int perPage, int page) async {
+    return listRequest<AnilistStaff>(perPage, page);
   }
 }

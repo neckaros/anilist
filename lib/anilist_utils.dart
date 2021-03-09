@@ -1,69 +1,21 @@
-// import 'dart:async';
+import 'dart:convert';
 
-// import 'dart:collection';
+import 'package:anilist/serializers.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:built_value/serializer.dart';
 
-// Stream<T> streamedRequest<T>({
-//     int numberPerQuery = 300}) async* {
-//     T Function(Map<String, dynamic> map) converter;
-//     StreamController<T> controller;
-//     bool paused = false;
-//     bool cancelled = false;
-//     Queue<T> buffer = Queue<T>();
-//     bool finished = false;
-//     var getResults = (int page) async {
-//       while (buffer.length > 0 && !paused && !cancelled) {
-//         var file = buffer.removeFirst();
-//         controller.add(file);
-//         if (finished && buffer.length == 0) {
-//           controller.close();
-//           return;
-//         }
-//       }
-//       while (!finished && !paused && !cancelled) {
-//         while (buffer.length > 0 && !paused && !cancelled) {
-//           var file = buffer.removeFirst();
-//           controller.add(file);
-//           if (finished && buffer.length == 0) {
-//             controller.close();
-//             return;
-//           }
-//         }
-//         if (paused || cancelled) return;
+class AnilistSerializable<T> {
+  FullType specifiedType = FullType(BuiltList, [FullType(T)]);
+  String jsonListString(BuiltList<T> list) =>
+      jsonEncode(serializers.serialize(list, specifiedType: specifiedType));
 
-//         Iterable<String> idsSubQuery;
-//         if (ids != null && ids.length > 0) {
-//           idsSubQuery = ids.skip(numberPerQuery * i).take(numberPerQuery);
-//           idsQuery = 'id in (${idsSubQuery.map((i) => '?').join(',')})';
-//         }
+  BuiltList<T> fromJsonList(List<dynamic> json) =>
+      serializers.deserialize(json, specifiedType: specifiedType)
+          as BuiltList<T>;
 
-//         for (var media in results.map<T>(converter)) {
-//           if (paused) {
-//             buffer.add(media);
-//           } else if (!cancelled) {
-//             controller.add(media);
-//           } else {
-//             break;
-//           }
-//         }
-//         if (finished && buffer.length == 0) {
-//           await controller.close();
-//           return;
-//         }
-//       }
-//     };
-//     controller = new StreamController<T>(onListen: () {
-//       getResults(currentIteration);
-//     }, onPause: () {
-//       paused = true;
-//     }, onResume: () {
-//       paused = false;
-//       getResults(currentIteration);
-//     }, onCancel: () async {
-//       cancelled = true;
-//       buffer.clear();
-//       controller.close();
-//       return null;
-//     });
-//     yield* controller.stream;
-//   }
-// }
+  T fromJson(Map<String, dynamic> json) =>
+      serializers.deserialize(json, specifiedType: FullType(T)) as T;
+
+  String toJson<T extends Object>(T media) =>
+      serializers.serialize(media, specifiedType: FullType(T)) as String;
+}

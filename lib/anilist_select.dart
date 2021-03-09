@@ -1,4 +1,5 @@
 import 'package:anilist/models/models.dart';
+import 'package:built_value/built_value.dart';
 import 'package:meta/meta.dart';
 
 class AnilistSelect {
@@ -27,8 +28,10 @@ class AnilistSelect {
   dynamic whereArgumentToGraph(String key) {
     var value = whereArguments[key];
     if (value == null) return '';
-    if (value is int || value is double) return value;
+    if (value is int || value is double || value is EnumClass) return value;
     if (value is List<String>) return '[${value.map((e) => '"$e"').join(',')}]';
+    if (value is List<EnumClass>)
+      return '[${value.map((e) => '$e').join(',')}]';
     return '"$value"';
   }
 
@@ -52,13 +55,18 @@ class AnilistSelect {
     ''';
   }
 
+  String get pageInfo => pageElements.length > 0
+      ? '''
+  pageInfo {
+          $pageElements
+        }
+  '''
+      : '';
   String get whereQuery {
     return '''
     query {
       Page (page: $page, perPage: $perPage) {
-        pageInfo {
-          $pageElements
-        }
+        $pageInfo
         ${name.toLowerCase()} ($where) {
           $elements
         }
@@ -76,7 +84,7 @@ class AnilistSelect {
           return '$k {${queryElements(value)}}';
         if (value is AnilistSubquery) {
           var where = value.select.where;
-          if (where != null) where = ', $where';
+          where = ', $where';
           return '$k(page: ${value.page}, perPage: ${value.perPage}$where) {nodes {${value.select.elements}}}';
         }
       }
@@ -94,4 +102,6 @@ class AnilistSelect {
   void withoutPageInfoHasNextPage() => removePageInfo('hasNextPage');
   void withPageInfoPerPage() => addPageInfo('perPage');
   void withoutPageInfoPerPage() => removePageInfo('perPage');
+
+  void querySearch(String search) => addWhereArgument('search', search);
 }

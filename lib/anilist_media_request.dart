@@ -1,8 +1,9 @@
+import 'package:anilist/anilist_request.dart';
 import 'package:dio/dio.dart';
 
 import 'models/models.dart';
 
-class AnilistMediaRequest extends AnilistMediaSelect {
+class AnilistMediaRequest extends AnilistMediaSelect with AnilistRequest {
   Dio client;
 
   AnilistMediaRequest({Dio? client})
@@ -11,7 +12,6 @@ class AnilistMediaRequest extends AnilistMediaSelect {
     this.client =
         client ?? Dio(BaseOptions(baseUrl: 'https://graphql.anilist.co'));
     arguments['id'] = null;
-    withPageInfoHasNextPage();
   }
   AnilistMediaRequest.fromArguments(Map<String, dynamic> withArguments)
       : client = Dio(BaseOptions(baseUrl: 'https://graphql.anilist.co')) {
@@ -33,18 +33,6 @@ class AnilistMediaRequest extends AnilistMediaSelect {
   }
 
   Future<AnilistQueryResult<AnilistMedia>> list(int perPage, int page) async {
-    this.page = page;
-    this.perPage = perPage;
-    var response = await client.post('', data: {
-      "query": whereQuery,
-    });
-    var mediasJson = response.data['data']['Page']['media'];
-    var medias = AnilistMedia.fromJsonList(mediasJson);
-    var pageInfoJson = response.data['data']['Page']['pageInfo'];
-    var pageInfo = AnilistPageInfo.fromJson(pageInfoJson);
-
-    return AnilistQueryResult<AnilistMedia>((b) => b
-      ..pageInfo = pageInfo.toBuilder()
-      ..results = medias.toBuilder());
+    return listRequest<AnilistMedia>(perPage, page);
   }
 }

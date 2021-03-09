@@ -1,6 +1,6 @@
 name: anilist
 description: A new Flutter package project.
-version: 1.0.0-NullSafety.1
+version: 1.0.0-NullSafety.2
 repository: https://github.com/neckaros/anilist
 
 environment:

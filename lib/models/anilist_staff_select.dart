@@ -52,7 +52,7 @@ class AnilistStaffSelect extends AnilistSelect {
   void withLanguage() => add('language');
   void withoutLanguage() => remove('language');
 
-  void withImage() => add('image', subArguments: argumentName);
+  void withImage() => add('image', subArguments: argumentImage);
   void withoutImage() => remove('image');
 
   void withDescription() => add('description');

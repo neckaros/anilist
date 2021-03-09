@@ -2,7 +2,7 @@ import 'models.dart';
 
 class AnilistCharacterSelect extends AnilistSelect {
   @override
-  String get name => 'Character';
+  String get name => 'Characters';
   static const Map<String, dynamic> argumentName = {
     'first': null,
     'last': null,

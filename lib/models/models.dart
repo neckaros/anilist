@@ -7,6 +7,7 @@ export 'anilist_media_format.dart';
 export 'anilist_media_status.dart';
 export 'anilist_media_season.dart';
 export 'anilist_media_source.dart';
+export 'anilist_media_sort.dart';
 export 'anilist_tag.dart';
 export 'anilist_trailer.dart';
 export 'anilist_image.dart';

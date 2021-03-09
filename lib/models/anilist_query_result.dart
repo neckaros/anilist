@@ -13,19 +13,21 @@ abstract class AnilistQueryResult<E>
   static Serializer<AnilistQueryResult> get serializer =>
       _$anilistQueryResultSerializer;
   AnilistPageInfo? get pageInfo;
-  ListBuilder<E>? get results;
+  BuiltList<E>? get results;
 
   AnilistQueryResult._();
   factory AnilistQueryResult(
-          [void Function(AnilistQueryResultBuilder) updates]) =
-      _$AnilistQueryResult;
+          [void Function(AnilistQueryResultBuilder<E>)? updates]) =
+      _$AnilistQueryResult<E>;
 
   static const FullType specifiedType =
       const FullType(BuiltList, const [const FullType(AnilistQueryResult)]);
   static String jsonListString(BuiltList<AnilistQueryResult> list) =>
-      jsonEncode(serializers.serialize(list, specifiedType: specifiedType));
+      jsonEncode(serializers.serialize(list,
+          specifiedType: FullType(AnilistQueryResult)));
 
   static BuiltList<AnilistQueryResult> fromJsonList(String json) =>
-      serializers.deserialize(jsonDecode(json), specifiedType: specifiedType)
+      serializers.deserialize(jsonDecode(json),
+              specifiedType: FullType(AnilistQueryResult))
           as BuiltList<AnilistQueryResult>;
 }
