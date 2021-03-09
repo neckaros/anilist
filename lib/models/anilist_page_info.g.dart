@@ -20,35 +20,37 @@ class _$AnilistPageInfoSerializer
   Iterable<Object> serialize(Serializers serializers, AnilistPageInfo object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[];
-    if (object.total != null) {
+    Object? value;
+    value = object.total;
+    if (value != null) {
       result
         ..add('total')
-        ..add(serializers.serialize(object.total,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.perPage != null) {
+    value = object.perPage;
+    if (value != null) {
       result
         ..add('perPage')
-        ..add(serializers.serialize(object.perPage,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.currentPage != null) {
+    value = object.currentPage;
+    if (value != null) {
       result
         ..add('currentPage')
-        ..add(serializers.serialize(object.currentPage,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.lastPage != null) {
+    value = object.lastPage;
+    if (value != null) {
       result
         ..add('lastPage')
-        ..add(serializers.serialize(object.lastPage,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.hasNextPage != null) {
+    value = object.hasNextPage;
+    if (value != null) {
       result
         ..add('hasNextPage')
-        ..add(serializers.serialize(object.hasNextPage,
-            specifiedType: const FullType(bool)));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
     }
     return result;
   }
@@ -63,7 +65,7 @@ class _$AnilistPageInfoSerializer
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object value = iterator.current;
       switch (key) {
         case 'total':
           result.total = serializers.deserialize(value,
@@ -94,17 +96,17 @@ class _$AnilistPageInfoSerializer
 
 class _$AnilistPageInfo extends AnilistPageInfo {
   @override
-  final int total;
+  final int? total;
   @override
-  final int perPage;
+  final int? perPage;
   @override
-  final int currentPage;
+  final int? currentPage;
   @override
-  final int lastPage;
+  final int? lastPage;
   @override
-  final bool hasNextPage;
+  final bool? hasNextPage;
 
-  factory _$AnilistPageInfo([void Function(AnilistPageInfoBuilder) updates]) =>
+  factory _$AnilistPageInfo([void Function(AnilistPageInfoBuilder)? updates]) =>
       (new AnilistPageInfoBuilder()..update(updates)).build();
 
   _$AnilistPageInfo._(
@@ -158,37 +160,38 @@ class _$AnilistPageInfo extends AnilistPageInfo {
 
 class AnilistPageInfoBuilder
     implements Builder<AnilistPageInfo, AnilistPageInfoBuilder> {
-  _$AnilistPageInfo _$v;
+  _$AnilistPageInfo? _$v;
 
-  int _total;
-  int get total => _$this._total;
-  set total(int total) => _$this._total = total;
+  int? _total;
+  int? get total => _$this._total;
+  set total(int? total) => _$this._total = total;
 
-  int _perPage;
-  int get perPage => _$this._perPage;
-  set perPage(int perPage) => _$this._perPage = perPage;
+  int? _perPage;
+  int? get perPage => _$this._perPage;
+  set perPage(int? perPage) => _$this._perPage = perPage;
 
-  int _currentPage;
-  int get currentPage => _$this._currentPage;
-  set currentPage(int currentPage) => _$this._currentPage = currentPage;
+  int? _currentPage;
+  int? get currentPage => _$this._currentPage;
+  set currentPage(int? currentPage) => _$this._currentPage = currentPage;
 
-  int _lastPage;
-  int get lastPage => _$this._lastPage;
-  set lastPage(int lastPage) => _$this._lastPage = lastPage;
+  int? _lastPage;
+  int? get lastPage => _$this._lastPage;
+  set lastPage(int? lastPage) => _$this._lastPage = lastPage;
 
-  bool _hasNextPage;
-  bool get hasNextPage => _$this._hasNextPage;
-  set hasNextPage(bool hasNextPage) => _$this._hasNextPage = hasNextPage;
+  bool? _hasNextPage;
+  bool? get hasNextPage => _$this._hasNextPage;
+  set hasNextPage(bool? hasNextPage) => _$this._hasNextPage = hasNextPage;
 
   AnilistPageInfoBuilder();
 
   AnilistPageInfoBuilder get _$this {
-    if (_$v != null) {
-      _total = _$v.total;
-      _perPage = _$v.perPage;
-      _currentPage = _$v.currentPage;
-      _lastPage = _$v.lastPage;
-      _hasNextPage = _$v.hasNextPage;
+    final $v = _$v;
+    if ($v != null) {
+      _total = $v.total;
+      _perPage = $v.perPage;
+      _currentPage = $v.currentPage;
+      _lastPage = $v.lastPage;
+      _hasNextPage = $v.hasNextPage;
       _$v = null;
     }
     return this;
@@ -196,14 +199,12 @@ class AnilistPageInfoBuilder
 
   @override
   void replace(AnilistPageInfo other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AnilistPageInfo;
   }
 
   @override
-  void update(void Function(AnilistPageInfoBuilder) updates) {
+  void update(void Function(AnilistPageInfoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 

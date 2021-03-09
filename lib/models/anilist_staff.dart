@@ -11,28 +11,20 @@ part 'anilist_staff.g.dart';
 abstract class AnilistStaff
     implements Built<AnilistStaff, AnilistStaffBuilder> {
   static Serializer<AnilistStaff> get serializer => _$anilistStaffSerializer;
-  @nullable
-  int get id;
-  @nullable
-  AnilistName get name;
-  @nullable
-  String get language;
-  @nullable
-  AnilistImage get image;
-  @nullable
-  String get description;
-  @nullable
-  bool get isFavourite;
-  @nullable
-  AnilistConnection<AnilistMedia, AnilistMedia> get staffMedia;
-  @nullable
-  AnilistConnection<AnilistCharacter, AnilistCharacter> get characters;
-  @nullable
-  int get favourites;
+  int? get id;
+  AnilistName? get name;
+  String? get language;
+  AnilistImage? get image;
+  String? get description;
+  bool? get isFavourite;
+  AnilistConnection<AnilistMedia, AnilistMedia>? get staffMedia;
+  AnilistConnection<AnilistCharacter, AnilistCharacter>? get characters;
+  int? get favourites;
 
   AnilistStaff._();
-  factory AnilistStaff([updates(AnilistStaffBuilder b)]) =>
-      new _$AnilistStaff((b) => b..update(updates));
+
+  factory AnilistStaff([void Function(AnilistStaffBuilder) updates]) =
+      _$AnilistStaff;
 
   static const FullType specifiedType =
       const FullType(BuiltList, const [const FullType(AnilistStaff)]);
@@ -40,11 +32,14 @@ abstract class AnilistStaff
       jsonEncode(serializers.serialize(list, specifiedType: specifiedType));
 
   static BuiltList<AnilistStaff> fromJsonList(List<dynamic> json) =>
-      serializers.deserialize(json, specifiedType: specifiedType);
+      serializers.deserialize(json, specifiedType: specifiedType)
+          as BuiltList<AnilistStaff>;
 
   static AnilistStaff fromJson(Map<String, dynamic> json) =>
-      serializers.deserialize(json, specifiedType: FullType(AnilistStaff));
+      serializers.deserialize(json, specifiedType: FullType(AnilistStaff))
+          as AnilistStaff;
 
-  static AnilistStaff toJson(AnilistStaff media) =>
-      serializers.serialize(media, specifiedType: FullType(AnilistStaff));
+  static String toJson(AnilistStaff media) =>
+      serializers.serialize(media, specifiedType: FullType(AnilistStaff))
+          as String;
 }

@@ -23,7 +23,7 @@ final Serializers serializers = (_$serializers.toBuilder()
       ..addPlugin(StandardJsonPlugin()))
     .build();
 
-T deserialize<T>(dynamic value) => serializers.deserialize(value);
+T deserialize<T>(dynamic value) => serializers.deserialize(value) as T;
 
 BuiltList<T> deserializeListOf<T>(dynamic value) => BuiltList.from(
     value.map((value) => deserialize<T>(value)).toList(growable: false));

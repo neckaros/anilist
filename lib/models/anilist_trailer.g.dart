@@ -20,22 +20,26 @@ class _$AnilistTrailerSerializer
   Iterable<Object> serialize(Serializers serializers, AnilistTrailer object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[];
-    if (object.id != null) {
+    Object? value;
+    value = object.id;
+    if (value != null) {
       result
         ..add('id')
-        ..add(serializers.serialize(object.id,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.site != null) {
+    value = object.site;
+    if (value != null) {
       result
         ..add('site')
-        ..add(serializers.serialize(object.site,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.thumbnail != null) {
+    value = object.thumbnail;
+    if (value != null) {
       result
         ..add('thumbnail')
-        ..add(serializers.serialize(object.thumbnail,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
     return result;
@@ -51,7 +55,7 @@ class _$AnilistTrailerSerializer
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object value = iterator.current;
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
@@ -74,13 +78,13 @@ class _$AnilistTrailerSerializer
 
 class _$AnilistTrailer extends AnilistTrailer {
   @override
-  final String id;
+  final String? id;
   @override
-  final String site;
+  final String? site;
   @override
-  final String thumbnail;
+  final String? thumbnail;
 
-  factory _$AnilistTrailer([void Function(AnilistTrailerBuilder) updates]) =>
+  factory _$AnilistTrailer([void Function(AnilistTrailerBuilder)? updates]) =>
       (new AnilistTrailerBuilder()..update(updates)).build();
 
   _$AnilistTrailer._({this.id, this.site, this.thumbnail}) : super._();
@@ -120,27 +124,28 @@ class _$AnilistTrailer extends AnilistTrailer {
 
 class AnilistTrailerBuilder
     implements Builder<AnilistTrailer, AnilistTrailerBuilder> {
-  _$AnilistTrailer _$v;
+  _$AnilistTrailer? _$v;
 
-  String _id;
-  String get id => _$this._id;
-  set id(String id) => _$this._id = id;
+  String? _id;
+  String? get id => _$this._id;
+  set id(String? id) => _$this._id = id;
 
-  String _site;
-  String get site => _$this._site;
-  set site(String site) => _$this._site = site;
+  String? _site;
+  String? get site => _$this._site;
+  set site(String? site) => _$this._site = site;
 
-  String _thumbnail;
-  String get thumbnail => _$this._thumbnail;
-  set thumbnail(String thumbnail) => _$this._thumbnail = thumbnail;
+  String? _thumbnail;
+  String? get thumbnail => _$this._thumbnail;
+  set thumbnail(String? thumbnail) => _$this._thumbnail = thumbnail;
 
   AnilistTrailerBuilder();
 
   AnilistTrailerBuilder get _$this {
-    if (_$v != null) {
-      _id = _$v.id;
-      _site = _$v.site;
-      _thumbnail = _$v.thumbnail;
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _site = $v.site;
+      _thumbnail = $v.thumbnail;
       _$v = null;
     }
     return this;
@@ -148,14 +153,12 @@ class AnilistTrailerBuilder
 
   @override
   void replace(AnilistTrailer other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AnilistTrailer;
   }
 
   @override
-  void update(void Function(AnilistTrailerBuilder) updates) {
+  void update(void Function(AnilistTrailerBuilder)? updates) {
     if (updates != null) updates(this);
   }
 

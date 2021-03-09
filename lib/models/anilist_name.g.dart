@@ -18,34 +18,40 @@ class _$AnilistNameSerializer implements StructuredSerializer<AnilistName> {
   Iterable<Object> serialize(Serializers serializers, AnilistName object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[];
-    if (object.first != null) {
+    Object? value;
+    value = object.first;
+    if (value != null) {
       result
         ..add('first')
-        ..add(serializers.serialize(object.first,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.last != null) {
+    value = object.last;
+    if (value != null) {
       result
         ..add('last')
-        ..add(serializers.serialize(object.last,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.full != null) {
+    value = object.full;
+    if (value != null) {
       result
         ..add('full')
-        ..add(serializers.serialize(object.full,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.native != null) {
+    value = object.native;
+    if (value != null) {
       result
         ..add('native')
-        ..add(serializers.serialize(object.native,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.alternative != null) {
+    value = object.alternative;
+    if (value != null) {
       result
         ..add('alternative')
-        ..add(serializers.serialize(object.alternative,
+        ..add(serializers.serialize(value,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(String)])));
     }
@@ -61,7 +67,7 @@ class _$AnilistNameSerializer implements StructuredSerializer<AnilistName> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object value = iterator.current;
       switch (key) {
         case 'first':
           result.first = serializers.deserialize(value,
@@ -94,17 +100,17 @@ class _$AnilistNameSerializer implements StructuredSerializer<AnilistName> {
 
 class _$AnilistName extends AnilistName {
   @override
-  final String first;
+  final String? first;
   @override
-  final String last;
+  final String? last;
   @override
-  final String full;
+  final String? full;
   @override
-  final String native;
+  final String? native;
   @override
-  final BuiltList<String> alternative;
+  final BuiltList<String>? alternative;
 
-  factory _$AnilistName([void Function(AnilistNameBuilder) updates]) =>
+  factory _$AnilistName([void Function(AnilistNameBuilder)? updates]) =>
       (new AnilistNameBuilder()..update(updates)).build();
 
   _$AnilistName._(
@@ -150,39 +156,40 @@ class _$AnilistName extends AnilistName {
 }
 
 class AnilistNameBuilder implements Builder<AnilistName, AnilistNameBuilder> {
-  _$AnilistName _$v;
+  _$AnilistName? _$v;
 
-  String _first;
-  String get first => _$this._first;
-  set first(String first) => _$this._first = first;
+  String? _first;
+  String? get first => _$this._first;
+  set first(String? first) => _$this._first = first;
 
-  String _last;
-  String get last => _$this._last;
-  set last(String last) => _$this._last = last;
+  String? _last;
+  String? get last => _$this._last;
+  set last(String? last) => _$this._last = last;
 
-  String _full;
-  String get full => _$this._full;
-  set full(String full) => _$this._full = full;
+  String? _full;
+  String? get full => _$this._full;
+  set full(String? full) => _$this._full = full;
 
-  String _native;
-  String get native => _$this._native;
-  set native(String native) => _$this._native = native;
+  String? _native;
+  String? get native => _$this._native;
+  set native(String? native) => _$this._native = native;
 
-  ListBuilder<String> _alternative;
+  ListBuilder<String>? _alternative;
   ListBuilder<String> get alternative =>
       _$this._alternative ??= new ListBuilder<String>();
-  set alternative(ListBuilder<String> alternative) =>
+  set alternative(ListBuilder<String>? alternative) =>
       _$this._alternative = alternative;
 
   AnilistNameBuilder();
 
   AnilistNameBuilder get _$this {
-    if (_$v != null) {
-      _first = _$v.first;
-      _last = _$v.last;
-      _full = _$v.full;
-      _native = _$v.native;
-      _alternative = _$v.alternative?.toBuilder();
+    final $v = _$v;
+    if ($v != null) {
+      _first = $v.first;
+      _last = $v.last;
+      _full = $v.full;
+      _native = $v.native;
+      _alternative = $v.alternative?.toBuilder();
       _$v = null;
     }
     return this;
@@ -190,14 +197,12 @@ class AnilistNameBuilder implements Builder<AnilistName, AnilistNameBuilder> {
 
   @override
   void replace(AnilistName other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AnilistName;
   }
 
   @override
-  void update(void Function(AnilistNameBuilder) updates) {
+  void update(void Function(AnilistNameBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -213,7 +218,7 @@ class AnilistNameBuilder implements Builder<AnilistName, AnilistNameBuilder> {
               native: native,
               alternative: _alternative?.build());
     } catch (_) {
-      String _$failedField;
+      late String _$failedField;
       try {
         _$failedField = 'alternative';
         _alternative?.build();

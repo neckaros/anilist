@@ -29,22 +29,26 @@ class _$AnilistConnectionSerializer
         isUnderspecified ? FullType.object : specifiedType.parameters[1];
 
     final result = <Object>[];
-    if (object.edges != null) {
+    Object? value;
+    value = object.edges;
+    if (value != null) {
       result
         ..add('edges')
-        ..add(serializers.serialize(object.edges,
+        ..add(serializers.serialize(value,
             specifiedType: new FullType(BuiltList, [parameterE])));
     }
-    if (object.nodes != null) {
+    value = object.nodes;
+    if (value != null) {
       result
         ..add('nodes')
-        ..add(serializers.serialize(object.nodes,
+        ..add(serializers.serialize(value,
             specifiedType: new FullType(BuiltList, [parameterN])));
     }
-    if (object.pageInfo != null) {
+    value = object.pageInfo;
+    if (value != null) {
       result
         ..add('pageInfo')
-        ..add(serializers.serialize(object.pageInfo,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
     return result;
@@ -64,13 +68,14 @@ class _$AnilistConnectionSerializer
 
     final result = isUnderspecified
         ? new AnilistConnectionBuilder<Object, Object>()
-        : serializers.newBuilder(specifiedType) as AnilistConnectionBuilder;
+        : serializers.newBuilder(specifiedType)
+            as AnilistConnectionBuilder<Object, Object>;
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object value = iterator.current;
       switch (key) {
         case 'edges':
           result.edges.replace(serializers.deserialize(value,
@@ -95,14 +100,14 @@ class _$AnilistConnectionSerializer
 
 class _$AnilistConnection<N, E> extends AnilistConnection<N, E> {
   @override
-  final BuiltList<E> edges;
+  final BuiltList<E>? edges;
   @override
-  final BuiltList<N> nodes;
+  final BuiltList<N>? nodes;
   @override
-  final String pageInfo;
+  final String? pageInfo;
 
   factory _$AnilistConnection(
-          [void Function(AnilistConnectionBuilder<N, E>) updates]) =>
+          [void Function(AnilistConnectionBuilder<N, E>)? updates]) =>
       (new AnilistConnectionBuilder<N, E>()..update(updates)).build();
 
   _$AnilistConnection._({this.edges, this.nodes, this.pageInfo}) : super._() {
@@ -151,27 +156,28 @@ class _$AnilistConnection<N, E> extends AnilistConnection<N, E> {
 class AnilistConnectionBuilder<N, E>
     implements
         Builder<AnilistConnection<N, E>, AnilistConnectionBuilder<N, E>> {
-  _$AnilistConnection<N, E> _$v;
+  _$AnilistConnection<N, E>? _$v;
 
-  ListBuilder<E> _edges;
+  ListBuilder<E>? _edges;
   ListBuilder<E> get edges => _$this._edges ??= new ListBuilder<E>();
-  set edges(ListBuilder<E> edges) => _$this._edges = edges;
+  set edges(ListBuilder<E>? edges) => _$this._edges = edges;
 
-  ListBuilder<N> _nodes;
+  ListBuilder<N>? _nodes;
   ListBuilder<N> get nodes => _$this._nodes ??= new ListBuilder<N>();
-  set nodes(ListBuilder<N> nodes) => _$this._nodes = nodes;
+  set nodes(ListBuilder<N>? nodes) => _$this._nodes = nodes;
 
-  String _pageInfo;
-  String get pageInfo => _$this._pageInfo;
-  set pageInfo(String pageInfo) => _$this._pageInfo = pageInfo;
+  String? _pageInfo;
+  String? get pageInfo => _$this._pageInfo;
+  set pageInfo(String? pageInfo) => _$this._pageInfo = pageInfo;
 
   AnilistConnectionBuilder();
 
   AnilistConnectionBuilder<N, E> get _$this {
-    if (_$v != null) {
-      _edges = _$v.edges?.toBuilder();
-      _nodes = _$v.nodes?.toBuilder();
-      _pageInfo = _$v.pageInfo;
+    final $v = _$v;
+    if ($v != null) {
+      _edges = $v.edges?.toBuilder();
+      _nodes = $v.nodes?.toBuilder();
+      _pageInfo = $v.pageInfo;
       _$v = null;
     }
     return this;
@@ -179,14 +185,12 @@ class AnilistConnectionBuilder<N, E>
 
   @override
   void replace(AnilistConnection<N, E> other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AnilistConnection<N, E>;
   }
 
   @override
-  void update(void Function(AnilistConnectionBuilder<N, E>) updates) {
+  void update(void Function(AnilistConnectionBuilder<N, E>)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -200,7 +204,7 @@ class AnilistConnectionBuilder<N, E>
               nodes: _nodes?.build(),
               pageInfo: pageInfo);
     } catch (_) {
-      String _$failedField;
+      late String _$failedField;
       try {
         _$failedField = 'edges';
         _edges?.build();

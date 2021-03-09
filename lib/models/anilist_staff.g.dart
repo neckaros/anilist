@@ -19,65 +19,73 @@ class _$AnilistStaffSerializer implements StructuredSerializer<AnilistStaff> {
   Iterable<Object> serialize(Serializers serializers, AnilistStaff object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[];
-    if (object.id != null) {
+    Object? value;
+    value = object.id;
+    if (value != null) {
       result
         ..add('id')
-        ..add(serializers.serialize(object.id,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.name != null) {
+    value = object.name;
+    if (value != null) {
       result
         ..add('name')
-        ..add(serializers.serialize(object.name,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(AnilistName)));
     }
-    if (object.language != null) {
+    value = object.language;
+    if (value != null) {
       result
         ..add('language')
-        ..add(serializers.serialize(object.language,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.image != null) {
+    value = object.image;
+    if (value != null) {
       result
         ..add('image')
-        ..add(serializers.serialize(object.image,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(AnilistImage)));
     }
-    if (object.description != null) {
+    value = object.description;
+    if (value != null) {
       result
         ..add('description')
-        ..add(serializers.serialize(object.description,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.isFavourite != null) {
+    value = object.isFavourite;
+    if (value != null) {
       result
         ..add('isFavourite')
-        ..add(serializers.serialize(object.isFavourite,
-            specifiedType: const FullType(bool)));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
     }
-    if (object.staffMedia != null) {
+    value = object.staffMedia;
+    if (value != null) {
       result
         ..add('staffMedia')
-        ..add(serializers.serialize(object.staffMedia,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(AnilistConnection, const [
               const FullType(AnilistMedia),
               const FullType(AnilistMedia)
             ])));
     }
-    if (object.characters != null) {
+    value = object.characters;
+    if (value != null) {
       result
         ..add('characters')
-        ..add(serializers.serialize(object.characters,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(AnilistConnection, const [
               const FullType(AnilistCharacter),
               const FullType(AnilistCharacter)
             ])));
     }
-    if (object.favourites != null) {
+    value = object.favourites;
+    if (value != null) {
       result
         ..add('favourites')
-        ..add(serializers.serialize(object.favourites,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
     return result;
   }
@@ -91,7 +99,7 @@ class _$AnilistStaffSerializer implements StructuredSerializer<AnilistStaff> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object value = iterator.current;
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
@@ -144,25 +152,25 @@ class _$AnilistStaffSerializer implements StructuredSerializer<AnilistStaff> {
 
 class _$AnilistStaff extends AnilistStaff {
   @override
-  final int id;
+  final int? id;
   @override
-  final AnilistName name;
+  final AnilistName? name;
   @override
-  final String language;
+  final String? language;
   @override
-  final AnilistImage image;
+  final AnilistImage? image;
   @override
-  final String description;
+  final String? description;
   @override
-  final bool isFavourite;
+  final bool? isFavourite;
   @override
-  final AnilistConnection<AnilistMedia, AnilistMedia> staffMedia;
+  final AnilistConnection<AnilistMedia, AnilistMedia>? staffMedia;
   @override
-  final AnilistConnection<AnilistCharacter, AnilistCharacter> characters;
+  final AnilistConnection<AnilistCharacter, AnilistCharacter>? characters;
   @override
-  final int favourites;
+  final int? favourites;
 
-  factory _$AnilistStaff([void Function(AnilistStaffBuilder) updates]) =>
+  factory _$AnilistStaff([void Function(AnilistStaffBuilder)? updates]) =>
       (new AnilistStaffBuilder()..update(updates)).build();
 
   _$AnilistStaff._(
@@ -235,66 +243,67 @@ class _$AnilistStaff extends AnilistStaff {
 
 class AnilistStaffBuilder
     implements Builder<AnilistStaff, AnilistStaffBuilder> {
-  _$AnilistStaff _$v;
+  _$AnilistStaff? _$v;
 
-  int _id;
-  int get id => _$this._id;
-  set id(int id) => _$this._id = id;
+  int? _id;
+  int? get id => _$this._id;
+  set id(int? id) => _$this._id = id;
 
-  AnilistNameBuilder _name;
+  AnilistNameBuilder? _name;
   AnilistNameBuilder get name => _$this._name ??= new AnilistNameBuilder();
-  set name(AnilistNameBuilder name) => _$this._name = name;
+  set name(AnilistNameBuilder? name) => _$this._name = name;
 
-  String _language;
-  String get language => _$this._language;
-  set language(String language) => _$this._language = language;
+  String? _language;
+  String? get language => _$this._language;
+  set language(String? language) => _$this._language = language;
 
-  AnilistImageBuilder _image;
+  AnilistImageBuilder? _image;
   AnilistImageBuilder get image => _$this._image ??= new AnilistImageBuilder();
-  set image(AnilistImageBuilder image) => _$this._image = image;
+  set image(AnilistImageBuilder? image) => _$this._image = image;
 
-  String _description;
-  String get description => _$this._description;
-  set description(String description) => _$this._description = description;
+  String? _description;
+  String? get description => _$this._description;
+  set description(String? description) => _$this._description = description;
 
-  bool _isFavourite;
-  bool get isFavourite => _$this._isFavourite;
-  set isFavourite(bool isFavourite) => _$this._isFavourite = isFavourite;
+  bool? _isFavourite;
+  bool? get isFavourite => _$this._isFavourite;
+  set isFavourite(bool? isFavourite) => _$this._isFavourite = isFavourite;
 
-  AnilistConnectionBuilder<AnilistMedia, AnilistMedia> _staffMedia;
+  AnilistConnectionBuilder<AnilistMedia, AnilistMedia>? _staffMedia;
   AnilistConnectionBuilder<AnilistMedia, AnilistMedia> get staffMedia =>
       _$this._staffMedia ??=
           new AnilistConnectionBuilder<AnilistMedia, AnilistMedia>();
   set staffMedia(
-          AnilistConnectionBuilder<AnilistMedia, AnilistMedia> staffMedia) =>
+          AnilistConnectionBuilder<AnilistMedia, AnilistMedia>? staffMedia) =>
       _$this._staffMedia = staffMedia;
 
-  AnilistConnectionBuilder<AnilistCharacter, AnilistCharacter> _characters;
+  AnilistConnectionBuilder<AnilistCharacter, AnilistCharacter>? _characters;
   AnilistConnectionBuilder<AnilistCharacter, AnilistCharacter> get characters =>
       _$this._characters ??=
           new AnilistConnectionBuilder<AnilistCharacter, AnilistCharacter>();
   set characters(
-          AnilistConnectionBuilder<AnilistCharacter, AnilistCharacter>
+          AnilistConnectionBuilder<AnilistCharacter, AnilistCharacter>?
               characters) =>
       _$this._characters = characters;
 
-  int _favourites;
-  int get favourites => _$this._favourites;
-  set favourites(int favourites) => _$this._favourites = favourites;
+  int? _favourites;
+  int? get favourites => _$this._favourites;
+  set favourites(int? favourites) => _$this._favourites = favourites;
 
   AnilistStaffBuilder();
 
   AnilistStaffBuilder get _$this {
-    if (_$v != null) {
-      _id = _$v.id;
-      _name = _$v.name?.toBuilder();
-      _language = _$v.language;
-      _image = _$v.image?.toBuilder();
-      _description = _$v.description;
-      _isFavourite = _$v.isFavourite;
-      _staffMedia = _$v.staffMedia?.toBuilder();
-      _characters = _$v.characters?.toBuilder();
-      _favourites = _$v.favourites;
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _name = $v.name?.toBuilder();
+      _language = $v.language;
+      _image = $v.image?.toBuilder();
+      _description = $v.description;
+      _isFavourite = $v.isFavourite;
+      _staffMedia = $v.staffMedia?.toBuilder();
+      _characters = $v.characters?.toBuilder();
+      _favourites = $v.favourites;
       _$v = null;
     }
     return this;
@@ -302,14 +311,12 @@ class AnilistStaffBuilder
 
   @override
   void replace(AnilistStaff other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AnilistStaff;
   }
 
   @override
-  void update(void Function(AnilistStaffBuilder) updates) {
+  void update(void Function(AnilistStaffBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -329,7 +336,7 @@ class AnilistStaffBuilder
               characters: _characters?.build(),
               favourites: favourites);
     } catch (_) {
-      String _$failedField;
+      late String _$failedField;
       try {
         _$failedField = 'name';
         _name?.build();

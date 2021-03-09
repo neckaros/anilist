@@ -18,53 +18,60 @@ class _$AnilistTagSerializer implements StructuredSerializer<AnilistTag> {
   Iterable<Object> serialize(Serializers serializers, AnilistTag object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[];
-    if (object.id != null) {
+    Object? value;
+    value = object.id;
+    if (value != null) {
       result
         ..add('id')
-        ..add(serializers.serialize(object.id,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.name != null) {
+    value = object.name;
+    if (value != null) {
       result
         ..add('name')
-        ..add(serializers.serialize(object.name,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.description != null) {
+    value = object.description;
+    if (value != null) {
       result
         ..add('description')
-        ..add(serializers.serialize(object.description,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.category != null) {
+    value = object.category;
+    if (value != null) {
       result
         ..add('category')
-        ..add(serializers.serialize(object.category,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.rank != null) {
+    value = object.rank;
+    if (value != null) {
       result
         ..add('rank')
-        ..add(serializers.serialize(object.rank,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.isGeneralSpoiler != null) {
+    value = object.isGeneralSpoiler;
+    if (value != null) {
       result
         ..add('isGeneralSpoiler')
-        ..add(serializers.serialize(object.isGeneralSpoiler,
-            specifiedType: const FullType(bool)));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
     }
-    if (object.isMediaSpoiler != null) {
+    value = object.isMediaSpoiler;
+    if (value != null) {
       result
         ..add('isMediaSpoiler')
-        ..add(serializers.serialize(object.isMediaSpoiler,
-            specifiedType: const FullType(bool)));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
     }
-    if (object.isAdult != null) {
+    value = object.isAdult;
+    if (value != null) {
       result
         ..add('isAdult')
-        ..add(serializers.serialize(object.isAdult,
-            specifiedType: const FullType(bool)));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
     }
     return result;
   }
@@ -78,7 +85,7 @@ class _$AnilistTagSerializer implements StructuredSerializer<AnilistTag> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object value = iterator.current;
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
@@ -121,23 +128,23 @@ class _$AnilistTagSerializer implements StructuredSerializer<AnilistTag> {
 
 class _$AnilistTag extends AnilistTag {
   @override
-  final int id;
+  final int? id;
   @override
-  final String name;
+  final String? name;
   @override
-  final String description;
+  final String? description;
   @override
-  final String category;
+  final String? category;
   @override
-  final int rank;
+  final int? rank;
   @override
-  final bool isGeneralSpoiler;
+  final bool? isGeneralSpoiler;
   @override
-  final bool isMediaSpoiler;
+  final bool? isMediaSpoiler;
   @override
-  final bool isAdult;
+  final bool? isAdult;
 
-  factory _$AnilistTag([void Function(AnilistTagBuilder) updates]) =>
+  factory _$AnilistTag([void Function(AnilistTagBuilder)? updates]) =>
       (new AnilistTagBuilder()..update(updates)).build();
 
   _$AnilistTag._(
@@ -204,54 +211,55 @@ class _$AnilistTag extends AnilistTag {
 }
 
 class AnilistTagBuilder implements Builder<AnilistTag, AnilistTagBuilder> {
-  _$AnilistTag _$v;
+  _$AnilistTag? _$v;
 
-  int _id;
-  int get id => _$this._id;
-  set id(int id) => _$this._id = id;
+  int? _id;
+  int? get id => _$this._id;
+  set id(int? id) => _$this._id = id;
 
-  String _name;
-  String get name => _$this._name;
-  set name(String name) => _$this._name = name;
+  String? _name;
+  String? get name => _$this._name;
+  set name(String? name) => _$this._name = name;
 
-  String _description;
-  String get description => _$this._description;
-  set description(String description) => _$this._description = description;
+  String? _description;
+  String? get description => _$this._description;
+  set description(String? description) => _$this._description = description;
 
-  String _category;
-  String get category => _$this._category;
-  set category(String category) => _$this._category = category;
+  String? _category;
+  String? get category => _$this._category;
+  set category(String? category) => _$this._category = category;
 
-  int _rank;
-  int get rank => _$this._rank;
-  set rank(int rank) => _$this._rank = rank;
+  int? _rank;
+  int? get rank => _$this._rank;
+  set rank(int? rank) => _$this._rank = rank;
 
-  bool _isGeneralSpoiler;
-  bool get isGeneralSpoiler => _$this._isGeneralSpoiler;
-  set isGeneralSpoiler(bool isGeneralSpoiler) =>
+  bool? _isGeneralSpoiler;
+  bool? get isGeneralSpoiler => _$this._isGeneralSpoiler;
+  set isGeneralSpoiler(bool? isGeneralSpoiler) =>
       _$this._isGeneralSpoiler = isGeneralSpoiler;
 
-  bool _isMediaSpoiler;
-  bool get isMediaSpoiler => _$this._isMediaSpoiler;
-  set isMediaSpoiler(bool isMediaSpoiler) =>
+  bool? _isMediaSpoiler;
+  bool? get isMediaSpoiler => _$this._isMediaSpoiler;
+  set isMediaSpoiler(bool? isMediaSpoiler) =>
       _$this._isMediaSpoiler = isMediaSpoiler;
 
-  bool _isAdult;
-  bool get isAdult => _$this._isAdult;
-  set isAdult(bool isAdult) => _$this._isAdult = isAdult;
+  bool? _isAdult;
+  bool? get isAdult => _$this._isAdult;
+  set isAdult(bool? isAdult) => _$this._isAdult = isAdult;
 
   AnilistTagBuilder();
 
   AnilistTagBuilder get _$this {
-    if (_$v != null) {
-      _id = _$v.id;
-      _name = _$v.name;
-      _description = _$v.description;
-      _category = _$v.category;
-      _rank = _$v.rank;
-      _isGeneralSpoiler = _$v.isGeneralSpoiler;
-      _isMediaSpoiler = _$v.isMediaSpoiler;
-      _isAdult = _$v.isAdult;
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _name = $v.name;
+      _description = $v.description;
+      _category = $v.category;
+      _rank = $v.rank;
+      _isGeneralSpoiler = $v.isGeneralSpoiler;
+      _isMediaSpoiler = $v.isMediaSpoiler;
+      _isAdult = $v.isAdult;
       _$v = null;
     }
     return this;
@@ -259,14 +267,12 @@ class AnilistTagBuilder implements Builder<AnilistTag, AnilistTagBuilder> {
 
   @override
   void replace(AnilistTag other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AnilistTag;
   }
 
   @override
-  void update(void Function(AnilistTagBuilder) updates) {
+  void update(void Function(AnilistTagBuilder)? updates) {
     if (updates != null) updates(this);
   }
 

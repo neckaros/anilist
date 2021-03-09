@@ -19,22 +19,26 @@ class _$AnilistTitleSerializer implements StructuredSerializer<AnilistTitle> {
   Iterable<Object> serialize(Serializers serializers, AnilistTitle object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[];
-    if (object.romaji != null) {
+    Object? value;
+    value = object.romaji;
+    if (value != null) {
       result
         ..add('romaji')
-        ..add(serializers.serialize(object.romaji,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.english != null) {
+    value = object.english;
+    if (value != null) {
       result
         ..add('english')
-        ..add(serializers.serialize(object.english,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.native != null) {
+    value = object.native;
+    if (value != null) {
       result
         ..add('native')
-        ..add(serializers.serialize(object.native,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
     return result;
@@ -49,7 +53,7 @@ class _$AnilistTitleSerializer implements StructuredSerializer<AnilistTitle> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object value = iterator.current;
       switch (key) {
         case 'romaji':
           result.romaji = serializers.deserialize(value,
@@ -72,13 +76,13 @@ class _$AnilistTitleSerializer implements StructuredSerializer<AnilistTitle> {
 
 class _$AnilistTitle extends AnilistTitle {
   @override
-  final String romaji;
+  final String? romaji;
   @override
-  final String english;
+  final String? english;
   @override
-  final String native;
+  final String? native;
 
-  factory _$AnilistTitle([void Function(AnilistTitleBuilder) updates]) =>
+  factory _$AnilistTitle([void Function(AnilistTitleBuilder)? updates]) =>
       (new AnilistTitleBuilder()..update(updates)).build();
 
   _$AnilistTitle._({this.romaji, this.english, this.native}) : super._();
@@ -117,27 +121,28 @@ class _$AnilistTitle extends AnilistTitle {
 
 class AnilistTitleBuilder
     implements Builder<AnilistTitle, AnilistTitleBuilder> {
-  _$AnilistTitle _$v;
+  _$AnilistTitle? _$v;
 
-  String _romaji;
-  String get romaji => _$this._romaji;
-  set romaji(String romaji) => _$this._romaji = romaji;
+  String? _romaji;
+  String? get romaji => _$this._romaji;
+  set romaji(String? romaji) => _$this._romaji = romaji;
 
-  String _english;
-  String get english => _$this._english;
-  set english(String english) => _$this._english = english;
+  String? _english;
+  String? get english => _$this._english;
+  set english(String? english) => _$this._english = english;
 
-  String _native;
-  String get native => _$this._native;
-  set native(String native) => _$this._native = native;
+  String? _native;
+  String? get native => _$this._native;
+  set native(String? native) => _$this._native = native;
 
   AnilistTitleBuilder();
 
   AnilistTitleBuilder get _$this {
-    if (_$v != null) {
-      _romaji = _$v.romaji;
-      _english = _$v.english;
-      _native = _$v.native;
+    final $v = _$v;
+    if ($v != null) {
+      _romaji = $v.romaji;
+      _english = $v.english;
+      _native = $v.native;
       _$v = null;
     }
     return this;
@@ -145,14 +150,12 @@ class AnilistTitleBuilder
 
   @override
   void replace(AnilistTitle other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AnilistTitle;
   }
 
   @override
-  void update(void Function(AnilistTitleBuilder) updates) {
+  void update(void Function(AnilistTitleBuilder)? updates) {
     if (updates != null) updates(this);
   }
 

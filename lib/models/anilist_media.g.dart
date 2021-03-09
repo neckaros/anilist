@@ -22,214 +22,236 @@ class _$AnilistMediaSerializer implements StructuredSerializer<AnilistMedia> {
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
     ];
-    if (object.idMal != null) {
+    Object? value;
+    value = object.idMal;
+    if (value != null) {
       result
         ..add('idMal')
-        ..add(serializers.serialize(object.idMal,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.title != null) {
+    value = object.title;
+    if (value != null) {
       result
         ..add('title')
-        ..add(serializers.serialize(object.title,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(AnilistTitle)));
     }
-    if (object.type != null) {
+    value = object.type;
+    if (value != null) {
       result
         ..add('type')
-        ..add(serializers.serialize(object.type,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(AnilistMediaType)));
     }
-    if (object.format != null) {
+    value = object.format;
+    if (value != null) {
       result
         ..add('format')
-        ..add(serializers.serialize(object.format,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(AnilistMediaFormat)));
     }
-    if (object.status != null) {
+    value = object.status;
+    if (value != null) {
       result
         ..add('status')
-        ..add(serializers.serialize(object.status,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(AnilistMediaStatus)));
     }
-    if (object.description != null) {
+    value = object.description;
+    if (value != null) {
       result
         ..add('description')
-        ..add(serializers.serialize(object.description,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.startDate != null) {
+    value = object.startDate;
+    if (value != null) {
       result
         ..add('startDate')
-        ..add(serializers.serialize(object.startDate,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(AnilistDate)));
     }
-    if (object.endDate != null) {
+    value = object.endDate;
+    if (value != null) {
       result
         ..add('endDate')
-        ..add(serializers.serialize(object.endDate,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(AnilistDate)));
     }
-    if (object.season != null) {
+    value = object.season;
+    if (value != null) {
       result
         ..add('season')
-        ..add(serializers.serialize(object.season,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(AnilistMediaSeason)));
     }
-    if (object.seasonYear != null) {
+    value = object.seasonYear;
+    if (value != null) {
       result
         ..add('seasonYear')
-        ..add(serializers.serialize(object.seasonYear,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.seasonInt != null) {
+    value = object.seasonInt;
+    if (value != null) {
       result
         ..add('seasonInt')
-        ..add(serializers.serialize(object.seasonInt,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.episodes != null) {
+    value = object.episodes;
+    if (value != null) {
       result
         ..add('episodes')
-        ..add(serializers.serialize(object.episodes,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.duration != null) {
+    value = object.duration;
+    if (value != null) {
       result
         ..add('duration')
-        ..add(serializers.serialize(object.duration,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.chapters != null) {
+    value = object.chapters;
+    if (value != null) {
       result
         ..add('chapters')
-        ..add(serializers.serialize(object.chapters,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.volumes != null) {
+    value = object.volumes;
+    if (value != null) {
       result
         ..add('volumes')
-        ..add(serializers.serialize(object.volumes,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.countryOfOrigin != null) {
+    value = object.countryOfOrigin;
+    if (value != null) {
       result
         ..add('countryOfOrigin')
-        ..add(serializers.serialize(object.countryOfOrigin,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.isLicensed != null) {
+    value = object.isLicensed;
+    if (value != null) {
       result
         ..add('isLicensed')
-        ..add(serializers.serialize(object.isLicensed,
-            specifiedType: const FullType(bool)));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
     }
-    if (object.source != null) {
+    value = object.source;
+    if (value != null) {
       result
         ..add('source')
-        ..add(serializers.serialize(object.source,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(AnilistMediaSource)));
     }
-    if (object.hashtag != null) {
+    value = object.hashtag;
+    if (value != null) {
       result
         ..add('hashtag')
-        ..add(serializers.serialize(object.hashtag,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.trailer != null) {
+    value = object.trailer;
+    if (value != null) {
       result
         ..add('trailer')
-        ..add(serializers.serialize(object.trailer,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(AnilistTrailer)));
     }
-    if (object.updatedAt != null) {
+    value = object.updatedAt;
+    if (value != null) {
       result
         ..add('updatedAt')
-        ..add(serializers.serialize(object.updatedAt,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.coverImage != null) {
+    value = object.coverImage;
+    if (value != null) {
       result
         ..add('coverImage')
-        ..add(serializers.serialize(object.coverImage,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(AnilistImage)));
     }
-    if (object.bannerImage != null) {
+    value = object.bannerImage;
+    if (value != null) {
       result
         ..add('bannerImage')
-        ..add(serializers.serialize(object.bannerImage,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.genres != null) {
+    value = object.genres;
+    if (value != null) {
       result
         ..add('genres')
-        ..add(serializers.serialize(object.genres,
+        ..add(serializers.serialize(value,
             specifiedType:
                 const FullType(BuiltSet, const [const FullType(String)])));
     }
-    if (object.synonyms != null) {
+    value = object.synonyms;
+    if (value != null) {
       result
         ..add('synonyms')
-        ..add(serializers.serialize(object.synonyms,
+        ..add(serializers.serialize(value,
             specifiedType:
                 const FullType(BuiltSet, const [const FullType(String)])));
     }
-    if (object.averageScore != null) {
+    value = object.averageScore;
+    if (value != null) {
       result
         ..add('averageScore')
-        ..add(serializers.serialize(object.averageScore,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.meanScore != null) {
+    value = object.meanScore;
+    if (value != null) {
       result
         ..add('meanScore')
-        ..add(serializers.serialize(object.meanScore,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.popularity != null) {
+    value = object.popularity;
+    if (value != null) {
       result
         ..add('popularity')
-        ..add(serializers.serialize(object.popularity,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.isLocked != null) {
+    value = object.isLocked;
+    if (value != null) {
       result
         ..add('isLocked')
-        ..add(serializers.serialize(object.isLocked,
-            specifiedType: const FullType(bool)));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
     }
-    if (object.trending != null) {
+    value = object.trending;
+    if (value != null) {
       result
         ..add('trending')
-        ..add(serializers.serialize(object.trending,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.favourites != null) {
+    value = object.favourites;
+    if (value != null) {
       result
         ..add('favourites')
-        ..add(serializers.serialize(object.favourites,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.tags != null) {
+    value = object.tags;
+    if (value != null) {
       result
         ..add('tags')
-        ..add(serializers.serialize(object.tags,
+        ..add(serializers.serialize(value,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(AnilistTag)])));
     }
-    if (object.characters != null) {
+    value = object.characters;
+    if (value != null) {
       result
         ..add('characters')
-        ..add(serializers.serialize(object.characters,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(AnilistConnection, const [
               const FullType(AnilistCharacter),
               const FullType(AnilistCharacter)
             ])));
     }
-    if (object.staff != null) {
+    value = object.staff;
+    if (value != null) {
       result
         ..add('staff')
-        ..add(serializers.serialize(object.staff,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(AnilistConnection, const [
               const FullType(AnilistStaff),
               const FullType(AnilistStaff)
@@ -247,7 +269,7 @@ class _$AnilistMediaSerializer implements StructuredSerializer<AnilistMedia> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object value = iterator.current;
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
@@ -417,79 +439,79 @@ class _$AnilistMedia extends AnilistMedia {
   @override
   final int id;
   @override
-  final int idMal;
+  final int? idMal;
   @override
-  final AnilistTitle title;
+  final AnilistTitle? title;
   @override
-  final AnilistMediaType type;
+  final AnilistMediaType? type;
   @override
-  final AnilistMediaFormat format;
+  final AnilistMediaFormat? format;
   @override
-  final AnilistMediaStatus status;
+  final AnilistMediaStatus? status;
   @override
-  final String description;
+  final String? description;
   @override
-  final AnilistDate startDate;
+  final AnilistDate? startDate;
   @override
-  final AnilistDate endDate;
+  final AnilistDate? endDate;
   @override
-  final AnilistMediaSeason season;
+  final AnilistMediaSeason? season;
   @override
-  final int seasonYear;
+  final int? seasonYear;
   @override
-  final int seasonInt;
+  final int? seasonInt;
   @override
-  final int episodes;
+  final int? episodes;
   @override
-  final int duration;
+  final int? duration;
   @override
-  final int chapters;
+  final int? chapters;
   @override
-  final int volumes;
+  final int? volumes;
   @override
-  final String countryOfOrigin;
+  final String? countryOfOrigin;
   @override
-  final bool isLicensed;
+  final bool? isLicensed;
   @override
-  final AnilistMediaSource source;
+  final AnilistMediaSource? source;
   @override
-  final String hashtag;
+  final String? hashtag;
   @override
-  final AnilistTrailer trailer;
+  final AnilistTrailer? trailer;
   @override
-  final int updatedAt;
+  final int? updatedAt;
   @override
-  final AnilistImage coverImage;
+  final AnilistImage? coverImage;
   @override
-  final String bannerImage;
+  final String? bannerImage;
   @override
-  final BuiltSet<String> genres;
+  final BuiltSet<String>? genres;
   @override
-  final BuiltSet<String> synonyms;
+  final BuiltSet<String>? synonyms;
   @override
-  final int averageScore;
+  final int? averageScore;
   @override
-  final int meanScore;
+  final int? meanScore;
   @override
-  final int popularity;
+  final int? popularity;
   @override
-  final bool isLocked;
+  final bool? isLocked;
   @override
-  final int trending;
+  final int? trending;
   @override
-  final int favourites;
+  final int? favourites;
   @override
-  final BuiltList<AnilistTag> tags;
+  final BuiltList<AnilistTag>? tags;
   @override
-  final AnilistConnection<AnilistCharacter, AnilistCharacter> characters;
+  final AnilistConnection<AnilistCharacter, AnilistCharacter>? characters;
   @override
-  final AnilistConnection<AnilistStaff, AnilistStaff> staff;
+  final AnilistConnection<AnilistStaff, AnilistStaff>? staff;
 
-  factory _$AnilistMedia([void Function(AnilistMediaBuilder) updates]) =>
+  factory _$AnilistMedia([void Function(AnilistMediaBuilder)? updates]) =>
       (new AnilistMediaBuilder()..update(updates)).build();
 
   _$AnilistMedia._(
-      {this.id,
+      {required this.id,
       this.idMal,
       this.title,
       this.type,
@@ -525,9 +547,7 @@ class _$AnilistMedia extends AnilistMedia {
       this.characters,
       this.staff})
       : super._() {
-    if (id == null) {
-      throw new BuiltValueNullFieldError('AnilistMedia', 'id');
-    }
+    BuiltValueNullFieldError.checkNotNull(id, 'AnilistMedia', 'id');
   }
 
   @override
@@ -664,203 +684,204 @@ class _$AnilistMedia extends AnilistMedia {
 
 class AnilistMediaBuilder
     implements Builder<AnilistMedia, AnilistMediaBuilder> {
-  _$AnilistMedia _$v;
+  _$AnilistMedia? _$v;
 
-  int _id;
-  int get id => _$this._id;
-  set id(int id) => _$this._id = id;
+  int? _id;
+  int? get id => _$this._id;
+  set id(int? id) => _$this._id = id;
 
-  int _idMal;
-  int get idMal => _$this._idMal;
-  set idMal(int idMal) => _$this._idMal = idMal;
+  int? _idMal;
+  int? get idMal => _$this._idMal;
+  set idMal(int? idMal) => _$this._idMal = idMal;
 
-  AnilistTitleBuilder _title;
+  AnilistTitleBuilder? _title;
   AnilistTitleBuilder get title => _$this._title ??= new AnilistTitleBuilder();
-  set title(AnilistTitleBuilder title) => _$this._title = title;
+  set title(AnilistTitleBuilder? title) => _$this._title = title;
 
-  AnilistMediaType _type;
-  AnilistMediaType get type => _$this._type;
-  set type(AnilistMediaType type) => _$this._type = type;
+  AnilistMediaType? _type;
+  AnilistMediaType? get type => _$this._type;
+  set type(AnilistMediaType? type) => _$this._type = type;
 
-  AnilistMediaFormat _format;
-  AnilistMediaFormat get format => _$this._format;
-  set format(AnilistMediaFormat format) => _$this._format = format;
+  AnilistMediaFormat? _format;
+  AnilistMediaFormat? get format => _$this._format;
+  set format(AnilistMediaFormat? format) => _$this._format = format;
 
-  AnilistMediaStatus _status;
-  AnilistMediaStatus get status => _$this._status;
-  set status(AnilistMediaStatus status) => _$this._status = status;
+  AnilistMediaStatus? _status;
+  AnilistMediaStatus? get status => _$this._status;
+  set status(AnilistMediaStatus? status) => _$this._status = status;
 
-  String _description;
-  String get description => _$this._description;
-  set description(String description) => _$this._description = description;
+  String? _description;
+  String? get description => _$this._description;
+  set description(String? description) => _$this._description = description;
 
-  AnilistDateBuilder _startDate;
+  AnilistDateBuilder? _startDate;
   AnilistDateBuilder get startDate =>
       _$this._startDate ??= new AnilistDateBuilder();
-  set startDate(AnilistDateBuilder startDate) => _$this._startDate = startDate;
+  set startDate(AnilistDateBuilder? startDate) => _$this._startDate = startDate;
 
-  AnilistDateBuilder _endDate;
+  AnilistDateBuilder? _endDate;
   AnilistDateBuilder get endDate =>
       _$this._endDate ??= new AnilistDateBuilder();
-  set endDate(AnilistDateBuilder endDate) => _$this._endDate = endDate;
+  set endDate(AnilistDateBuilder? endDate) => _$this._endDate = endDate;
 
-  AnilistMediaSeason _season;
-  AnilistMediaSeason get season => _$this._season;
-  set season(AnilistMediaSeason season) => _$this._season = season;
+  AnilistMediaSeason? _season;
+  AnilistMediaSeason? get season => _$this._season;
+  set season(AnilistMediaSeason? season) => _$this._season = season;
 
-  int _seasonYear;
-  int get seasonYear => _$this._seasonYear;
-  set seasonYear(int seasonYear) => _$this._seasonYear = seasonYear;
+  int? _seasonYear;
+  int? get seasonYear => _$this._seasonYear;
+  set seasonYear(int? seasonYear) => _$this._seasonYear = seasonYear;
 
-  int _seasonInt;
-  int get seasonInt => _$this._seasonInt;
-  set seasonInt(int seasonInt) => _$this._seasonInt = seasonInt;
+  int? _seasonInt;
+  int? get seasonInt => _$this._seasonInt;
+  set seasonInt(int? seasonInt) => _$this._seasonInt = seasonInt;
 
-  int _episodes;
-  int get episodes => _$this._episodes;
-  set episodes(int episodes) => _$this._episodes = episodes;
+  int? _episodes;
+  int? get episodes => _$this._episodes;
+  set episodes(int? episodes) => _$this._episodes = episodes;
 
-  int _duration;
-  int get duration => _$this._duration;
-  set duration(int duration) => _$this._duration = duration;
+  int? _duration;
+  int? get duration => _$this._duration;
+  set duration(int? duration) => _$this._duration = duration;
 
-  int _chapters;
-  int get chapters => _$this._chapters;
-  set chapters(int chapters) => _$this._chapters = chapters;
+  int? _chapters;
+  int? get chapters => _$this._chapters;
+  set chapters(int? chapters) => _$this._chapters = chapters;
 
-  int _volumes;
-  int get volumes => _$this._volumes;
-  set volumes(int volumes) => _$this._volumes = volumes;
+  int? _volumes;
+  int? get volumes => _$this._volumes;
+  set volumes(int? volumes) => _$this._volumes = volumes;
 
-  String _countryOfOrigin;
-  String get countryOfOrigin => _$this._countryOfOrigin;
-  set countryOfOrigin(String countryOfOrigin) =>
+  String? _countryOfOrigin;
+  String? get countryOfOrigin => _$this._countryOfOrigin;
+  set countryOfOrigin(String? countryOfOrigin) =>
       _$this._countryOfOrigin = countryOfOrigin;
 
-  bool _isLicensed;
-  bool get isLicensed => _$this._isLicensed;
-  set isLicensed(bool isLicensed) => _$this._isLicensed = isLicensed;
+  bool? _isLicensed;
+  bool? get isLicensed => _$this._isLicensed;
+  set isLicensed(bool? isLicensed) => _$this._isLicensed = isLicensed;
 
-  AnilistMediaSource _source;
-  AnilistMediaSource get source => _$this._source;
-  set source(AnilistMediaSource source) => _$this._source = source;
+  AnilistMediaSource? _source;
+  AnilistMediaSource? get source => _$this._source;
+  set source(AnilistMediaSource? source) => _$this._source = source;
 
-  String _hashtag;
-  String get hashtag => _$this._hashtag;
-  set hashtag(String hashtag) => _$this._hashtag = hashtag;
+  String? _hashtag;
+  String? get hashtag => _$this._hashtag;
+  set hashtag(String? hashtag) => _$this._hashtag = hashtag;
 
-  AnilistTrailerBuilder _trailer;
+  AnilistTrailerBuilder? _trailer;
   AnilistTrailerBuilder get trailer =>
       _$this._trailer ??= new AnilistTrailerBuilder();
-  set trailer(AnilistTrailerBuilder trailer) => _$this._trailer = trailer;
+  set trailer(AnilistTrailerBuilder? trailer) => _$this._trailer = trailer;
 
-  int _updatedAt;
-  int get updatedAt => _$this._updatedAt;
-  set updatedAt(int updatedAt) => _$this._updatedAt = updatedAt;
+  int? _updatedAt;
+  int? get updatedAt => _$this._updatedAt;
+  set updatedAt(int? updatedAt) => _$this._updatedAt = updatedAt;
 
-  AnilistImageBuilder _coverImage;
+  AnilistImageBuilder? _coverImage;
   AnilistImageBuilder get coverImage =>
       _$this._coverImage ??= new AnilistImageBuilder();
-  set coverImage(AnilistImageBuilder coverImage) =>
+  set coverImage(AnilistImageBuilder? coverImage) =>
       _$this._coverImage = coverImage;
 
-  String _bannerImage;
-  String get bannerImage => _$this._bannerImage;
-  set bannerImage(String bannerImage) => _$this._bannerImage = bannerImage;
+  String? _bannerImage;
+  String? get bannerImage => _$this._bannerImage;
+  set bannerImage(String? bannerImage) => _$this._bannerImage = bannerImage;
 
-  SetBuilder<String> _genres;
+  SetBuilder<String>? _genres;
   SetBuilder<String> get genres => _$this._genres ??= new SetBuilder<String>();
-  set genres(SetBuilder<String> genres) => _$this._genres = genres;
+  set genres(SetBuilder<String>? genres) => _$this._genres = genres;
 
-  SetBuilder<String> _synonyms;
+  SetBuilder<String>? _synonyms;
   SetBuilder<String> get synonyms =>
       _$this._synonyms ??= new SetBuilder<String>();
-  set synonyms(SetBuilder<String> synonyms) => _$this._synonyms = synonyms;
+  set synonyms(SetBuilder<String>? synonyms) => _$this._synonyms = synonyms;
 
-  int _averageScore;
-  int get averageScore => _$this._averageScore;
-  set averageScore(int averageScore) => _$this._averageScore = averageScore;
+  int? _averageScore;
+  int? get averageScore => _$this._averageScore;
+  set averageScore(int? averageScore) => _$this._averageScore = averageScore;
 
-  int _meanScore;
-  int get meanScore => _$this._meanScore;
-  set meanScore(int meanScore) => _$this._meanScore = meanScore;
+  int? _meanScore;
+  int? get meanScore => _$this._meanScore;
+  set meanScore(int? meanScore) => _$this._meanScore = meanScore;
 
-  int _popularity;
-  int get popularity => _$this._popularity;
-  set popularity(int popularity) => _$this._popularity = popularity;
+  int? _popularity;
+  int? get popularity => _$this._popularity;
+  set popularity(int? popularity) => _$this._popularity = popularity;
 
-  bool _isLocked;
-  bool get isLocked => _$this._isLocked;
-  set isLocked(bool isLocked) => _$this._isLocked = isLocked;
+  bool? _isLocked;
+  bool? get isLocked => _$this._isLocked;
+  set isLocked(bool? isLocked) => _$this._isLocked = isLocked;
 
-  int _trending;
-  int get trending => _$this._trending;
-  set trending(int trending) => _$this._trending = trending;
+  int? _trending;
+  int? get trending => _$this._trending;
+  set trending(int? trending) => _$this._trending = trending;
 
-  int _favourites;
-  int get favourites => _$this._favourites;
-  set favourites(int favourites) => _$this._favourites = favourites;
+  int? _favourites;
+  int? get favourites => _$this._favourites;
+  set favourites(int? favourites) => _$this._favourites = favourites;
 
-  ListBuilder<AnilistTag> _tags;
+  ListBuilder<AnilistTag>? _tags;
   ListBuilder<AnilistTag> get tags =>
       _$this._tags ??= new ListBuilder<AnilistTag>();
-  set tags(ListBuilder<AnilistTag> tags) => _$this._tags = tags;
+  set tags(ListBuilder<AnilistTag>? tags) => _$this._tags = tags;
 
-  AnilistConnectionBuilder<AnilistCharacter, AnilistCharacter> _characters;
+  AnilistConnectionBuilder<AnilistCharacter, AnilistCharacter>? _characters;
   AnilistConnectionBuilder<AnilistCharacter, AnilistCharacter> get characters =>
       _$this._characters ??=
           new AnilistConnectionBuilder<AnilistCharacter, AnilistCharacter>();
   set characters(
-          AnilistConnectionBuilder<AnilistCharacter, AnilistCharacter>
+          AnilistConnectionBuilder<AnilistCharacter, AnilistCharacter>?
               characters) =>
       _$this._characters = characters;
 
-  AnilistConnectionBuilder<AnilistStaff, AnilistStaff> _staff;
+  AnilistConnectionBuilder<AnilistStaff, AnilistStaff>? _staff;
   AnilistConnectionBuilder<AnilistStaff, AnilistStaff> get staff =>
       _$this._staff ??=
           new AnilistConnectionBuilder<AnilistStaff, AnilistStaff>();
-  set staff(AnilistConnectionBuilder<AnilistStaff, AnilistStaff> staff) =>
+  set staff(AnilistConnectionBuilder<AnilistStaff, AnilistStaff>? staff) =>
       _$this._staff = staff;
 
   AnilistMediaBuilder();
 
   AnilistMediaBuilder get _$this {
-    if (_$v != null) {
-      _id = _$v.id;
-      _idMal = _$v.idMal;
-      _title = _$v.title?.toBuilder();
-      _type = _$v.type;
-      _format = _$v.format;
-      _status = _$v.status;
-      _description = _$v.description;
-      _startDate = _$v.startDate?.toBuilder();
-      _endDate = _$v.endDate?.toBuilder();
-      _season = _$v.season;
-      _seasonYear = _$v.seasonYear;
-      _seasonInt = _$v.seasonInt;
-      _episodes = _$v.episodes;
-      _duration = _$v.duration;
-      _chapters = _$v.chapters;
-      _volumes = _$v.volumes;
-      _countryOfOrigin = _$v.countryOfOrigin;
-      _isLicensed = _$v.isLicensed;
-      _source = _$v.source;
-      _hashtag = _$v.hashtag;
-      _trailer = _$v.trailer?.toBuilder();
-      _updatedAt = _$v.updatedAt;
-      _coverImage = _$v.coverImage?.toBuilder();
-      _bannerImage = _$v.bannerImage;
-      _genres = _$v.genres?.toBuilder();
-      _synonyms = _$v.synonyms?.toBuilder();
-      _averageScore = _$v.averageScore;
-      _meanScore = _$v.meanScore;
-      _popularity = _$v.popularity;
-      _isLocked = _$v.isLocked;
-      _trending = _$v.trending;
-      _favourites = _$v.favourites;
-      _tags = _$v.tags?.toBuilder();
-      _characters = _$v.characters?.toBuilder();
-      _staff = _$v.staff?.toBuilder();
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _idMal = $v.idMal;
+      _title = $v.title?.toBuilder();
+      _type = $v.type;
+      _format = $v.format;
+      _status = $v.status;
+      _description = $v.description;
+      _startDate = $v.startDate?.toBuilder();
+      _endDate = $v.endDate?.toBuilder();
+      _season = $v.season;
+      _seasonYear = $v.seasonYear;
+      _seasonInt = $v.seasonInt;
+      _episodes = $v.episodes;
+      _duration = $v.duration;
+      _chapters = $v.chapters;
+      _volumes = $v.volumes;
+      _countryOfOrigin = $v.countryOfOrigin;
+      _isLicensed = $v.isLicensed;
+      _source = $v.source;
+      _hashtag = $v.hashtag;
+      _trailer = $v.trailer?.toBuilder();
+      _updatedAt = $v.updatedAt;
+      _coverImage = $v.coverImage?.toBuilder();
+      _bannerImage = $v.bannerImage;
+      _genres = $v.genres?.toBuilder();
+      _synonyms = $v.synonyms?.toBuilder();
+      _averageScore = $v.averageScore;
+      _meanScore = $v.meanScore;
+      _popularity = $v.popularity;
+      _isLocked = $v.isLocked;
+      _trending = $v.trending;
+      _favourites = $v.favourites;
+      _tags = $v.tags?.toBuilder();
+      _characters = $v.characters?.toBuilder();
+      _staff = $v.staff?.toBuilder();
       _$v = null;
     }
     return this;
@@ -868,14 +889,12 @@ class AnilistMediaBuilder
 
   @override
   void replace(AnilistMedia other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AnilistMedia;
   }
 
   @override
-  void update(void Function(AnilistMediaBuilder) updates) {
+  void update(void Function(AnilistMediaBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -885,7 +904,8 @@ class AnilistMediaBuilder
     try {
       _$result = _$v ??
           new _$AnilistMedia._(
-              id: id,
+              id: BuiltValueNullFieldError.checkNotNull(
+                  id, 'AnilistMedia', 'id'),
               idMal: idMal,
               title: _title?.build(),
               type: type,
@@ -921,7 +941,7 @@ class AnilistMediaBuilder
               characters: _characters?.build(),
               staff: _staff?.build());
     } catch (_) {
-      String _$failedField;
+      late String _$failedField;
       try {
         _$failedField = 'title';
         _title?.build();

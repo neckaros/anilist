@@ -144,7 +144,7 @@ class AnilistMediaSelect extends AnilistSelect {
   void withTrending() => add('trending');
   void withoutTrending() => remove('trending');
 
-  void withCoverImage({Map<String, dynamic> customArguments}) =>
+  void withCoverImage({Map<String, dynamic>? customArguments}) =>
       add('coverImage', subArguments: customArguments ?? argumentCoverImage);
   void withoutCoverImage() => remove('coverImage');
 

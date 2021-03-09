@@ -6,16 +6,13 @@ part 'anilist_image.g.dart';
 abstract class AnilistImage
     implements Built<AnilistImage, AnilistImageBuilder> {
   static Serializer<AnilistImage> get serializer => _$anilistImageSerializer;
-  @nullable
-  String get extraLarge;
-  @nullable
-  String get large;
-  @nullable
-  String get medium;
-  @nullable
-  String get color;
+  String? get extraLarge;
+  String? get large;
+  String? get medium;
+  String? get color;
 
   AnilistImage._();
-  factory AnilistImage([updates(AnilistImageBuilder b)]) =>
-      new _$AnilistImage((b) => b..update(updates));
+
+  factory AnilistImage([void Function(AnilistImageBuilder) updates]) =
+      _$AnilistImage;
 }

@@ -8,14 +8,11 @@ abstract class AnilistConnection<N, E>
     implements Built<AnilistConnection<N, E>, AnilistConnectionBuilder<N, E>> {
   static Serializer<AnilistConnection> get serializer =>
       _$anilistConnectionSerializer;
-  @nullable
-  BuiltList<E> get edges;
-  @nullable
-  BuiltList<N> get nodes;
-  @nullable
-  String get pageInfo;
+  BuiltList<E>? get edges;
+  BuiltList<N>? get nodes;
+  String? get pageInfo;
 
   AnilistConnection._();
-  factory AnilistConnection([updates(AnilistConnectionBuilder<N, E> b)]) =>
-      new _$AnilistConnection<N, E>((b) => b..update(updates));
+  factory AnilistConnection([void Function(AnilistConnectionBuilder) updates]) =
+      _$AnilistConnection;
 }

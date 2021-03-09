@@ -27,16 +27,19 @@ class _$AnilistQueryResultSerializer
         isUnderspecified ? FullType.object : specifiedType.parameters[0];
 
     final result = <Object>[];
-    if (object.pageInfo != null) {
+    Object? value;
+    value = object.pageInfo;
+    if (value != null) {
       result
         ..add('pageInfo')
-        ..add(serializers.serialize(object.pageInfo,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(AnilistPageInfo)));
     }
-    if (object.results != null) {
+    value = object.results;
+    if (value != null) {
       result
         ..add('results')
-        ..add(serializers.serialize(object.results,
+        ..add(serializers.serialize(value,
             specifiedType: new FullType(ListBuilder, [parameterE])));
     }
     return result;
@@ -54,13 +57,14 @@ class _$AnilistQueryResultSerializer
 
     final result = isUnderspecified
         ? new AnilistQueryResultBuilder<Object>()
-        : serializers.newBuilder(specifiedType) as AnilistQueryResultBuilder;
+        : serializers.newBuilder(specifiedType)
+            as AnilistQueryResultBuilder<Object>;
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object value = iterator.current;
       switch (key) {
         case 'pageInfo':
           result.pageInfo.replace(serializers.deserialize(value,
@@ -81,12 +85,12 @@ class _$AnilistQueryResultSerializer
 
 class _$AnilistQueryResult<E> extends AnilistQueryResult<E> {
   @override
-  final AnilistPageInfo pageInfo;
+  final AnilistPageInfo? pageInfo;
   @override
-  final ListBuilder<E> results;
+  final ListBuilder<E>? results;
 
   factory _$AnilistQueryResult(
-          [void Function(AnilistQueryResultBuilder<E>) updates]) =>
+          [void Function(AnilistQueryResultBuilder<E>)? updates]) =>
       (new AnilistQueryResultBuilder<E>()..update(updates)).build();
 
   _$AnilistQueryResult._({this.pageInfo, this.results}) : super._() {
@@ -128,23 +132,24 @@ class _$AnilistQueryResult<E> extends AnilistQueryResult<E> {
 
 class AnilistQueryResultBuilder<E>
     implements Builder<AnilistQueryResult<E>, AnilistQueryResultBuilder<E>> {
-  _$AnilistQueryResult<E> _$v;
+  _$AnilistQueryResult<E>? _$v;
 
-  AnilistPageInfoBuilder _pageInfo;
+  AnilistPageInfoBuilder? _pageInfo;
   AnilistPageInfoBuilder get pageInfo =>
       _$this._pageInfo ??= new AnilistPageInfoBuilder();
-  set pageInfo(AnilistPageInfoBuilder pageInfo) => _$this._pageInfo = pageInfo;
+  set pageInfo(AnilistPageInfoBuilder? pageInfo) => _$this._pageInfo = pageInfo;
 
-  ListBuilder<E> _results;
-  ListBuilder<E> get results => _$this._results;
-  set results(ListBuilder<E> results) => _$this._results = results;
+  ListBuilder<E>? _results;
+  ListBuilder<E>? get results => _$this._results;
+  set results(ListBuilder<E>? results) => _$this._results = results;
 
   AnilistQueryResultBuilder();
 
   AnilistQueryResultBuilder<E> get _$this {
-    if (_$v != null) {
-      _pageInfo = _$v.pageInfo?.toBuilder();
-      _results = _$v.results;
+    final $v = _$v;
+    if ($v != null) {
+      _pageInfo = $v.pageInfo?.toBuilder();
+      _results = $v.results;
       _$v = null;
     }
     return this;
@@ -152,14 +157,12 @@ class AnilistQueryResultBuilder<E>
 
   @override
   void replace(AnilistQueryResult<E> other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AnilistQueryResult<E>;
   }
 
   @override
-  void update(void Function(AnilistQueryResultBuilder<E>) updates) {
+  void update(void Function(AnilistQueryResultBuilder<E>)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -171,7 +174,7 @@ class AnilistQueryResultBuilder<E>
           new _$AnilistQueryResult<E>._(
               pageInfo: _pageInfo?.build(), results: results);
     } catch (_) {
-      String _$failedField;
+      late String _$failedField;
       try {
         _$failedField = 'pageInfo';
         _pageInfo?.build();

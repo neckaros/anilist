@@ -6,18 +6,14 @@ part 'anilist_name.g.dart';
 
 abstract class AnilistName implements Built<AnilistName, AnilistNameBuilder> {
   static Serializer<AnilistName> get serializer => _$anilistNameSerializer;
-  @nullable
-  String get first;
-  @nullable
-  String get last;
-  @nullable
-  String get full;
-  @nullable
-  String get native;
-  @nullable
-  BuiltList<String> get alternative;
+  String? get first;
+  String? get last;
+  String? get full;
+  String? get native;
+  BuiltList<String>? get alternative;
 
   AnilistName._();
-  factory AnilistName([updates(AnilistNameBuilder b)]) =>
-      new _$AnilistName((b) => b..update(updates));
+
+  factory AnilistName([void Function(AnilistNameBuilder) updates]) =
+      _$AnilistName;
 }

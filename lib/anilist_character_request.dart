@@ -5,12 +5,13 @@ import 'models/models.dart';
 class AnilistCharacterRequest extends AnilistCharacterSelect {
   Dio client;
 
-  AnilistCharacterRequest({Dio client}) {
-    this.client =
-        client ?? Dio(BaseOptions(baseUrl: 'https://graphql.anilist.co'));
+  AnilistCharacterRequest({Dio? client})
+      : client =
+            client ?? Dio(BaseOptions(baseUrl: 'https://graphql.anilist.co')) {
     arguments['id'] = null;
   }
-  AnilistCharacterRequest.fromArguments(Map<String, dynamic> withArguments) {
+  AnilistCharacterRequest.fromArguments(Map<String, dynamic> withArguments)
+      : client = Dio(BaseOptions(baseUrl: 'https://graphql.anilist.co')) {
     super.arguments = withArguments;
   }
 

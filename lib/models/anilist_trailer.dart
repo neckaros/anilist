@@ -7,14 +7,11 @@ abstract class AnilistTrailer
     implements Built<AnilistTrailer, AnilistTrailerBuilder> {
   static Serializer<AnilistTrailer> get serializer =>
       _$anilistTrailerSerializer;
-  @nullable
-  String get id;
-  @nullable
-  String get site;
-  @nullable
-  String get thumbnail;
+  String? get id;
+  String? get site;
+  String? get thumbnail;
 
   AnilistTrailer._();
-  factory AnilistTrailer([updates(AnilistTrailerBuilder b)]) =>
-      new _$AnilistTrailer((b) => b..update(updates));
+  factory AnilistTrailer([void Function(AnilistTrailerBuilder) updates]) =
+      _$AnilistTrailer;
 }

@@ -6,15 +6,15 @@ class AnilistSelect {
   Map<String, dynamic> whereArguments = Map<String, dynamic>();
   Map<String, dynamic> pageArguments = Map<String, dynamic>();
 
-  int page;
-  int perPage;
+  int page = 1;
+  int perPage = 10;
 
-  String get name => null;
+  String get name => "select";
 
   void add(String key, {dynamic subArguments}) => arguments[key] = subArguments;
   void remove(String key) => arguments.remove(key);
   void addSub(String key, String subKey) {
-    arguments.putIfAbsent(key, () => Map<String, String>());
+    arguments.putIfAbsent(key, () => Map<String, String?>());
     arguments[key][subKey] = null;
   }
 
@@ -55,7 +55,7 @@ class AnilistSelect {
   String get whereQuery {
     return '''
     query {
-      Page (page: ${page ?? 1}, perPage: ${perPage ?? 10}) {
+      Page (page: $page, perPage: $perPage) {
         pageInfo {
           $pageElements
         }

@@ -5,13 +5,16 @@ import 'models/models.dart';
 class AnilistMediaRequest extends AnilistMediaSelect {
   Dio client;
 
-  AnilistMediaRequest({Dio client}) {
+  AnilistMediaRequest({Dio? client})
+      : client =
+            client ?? Dio(BaseOptions(baseUrl: 'https://graphql.anilist.co')) {
     this.client =
         client ?? Dio(BaseOptions(baseUrl: 'https://graphql.anilist.co'));
     arguments['id'] = null;
     withPageInfoHasNextPage();
   }
-  AnilistMediaRequest.fromArguments(Map<String, dynamic> withArguments) {
+  AnilistMediaRequest.fromArguments(Map<String, dynamic> withArguments)
+      : client = Dio(BaseOptions(baseUrl: 'https://graphql.anilist.co')) {
     super.arguments = withArguments;
   }
 
@@ -21,7 +24,6 @@ class AnilistMediaRequest extends AnilistMediaSelect {
   }
 
   Future<AnilistMedia> byId(int id) async {
-    print(query);
     var response = await client.post('', data: {
       "query": query,
       "variables": {'id': id}

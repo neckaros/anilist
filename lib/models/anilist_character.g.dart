@@ -20,54 +20,61 @@ class _$AnilistCharacterSerializer
   Iterable<Object> serialize(Serializers serializers, AnilistCharacter object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[];
-    if (object.id != null) {
+    Object? value;
+    value = object.id;
+    if (value != null) {
       result
         ..add('id')
-        ..add(serializers.serialize(object.id,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.name != null) {
+    value = object.name;
+    if (value != null) {
       result
         ..add('name')
-        ..add(serializers.serialize(object.name,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(AnilistName)));
     }
-    if (object.image != null) {
+    value = object.image;
+    if (value != null) {
       result
         ..add('image')
-        ..add(serializers.serialize(object.image,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(AnilistImage)));
     }
-    if (object.description != null) {
+    value = object.description;
+    if (value != null) {
       result
         ..add('description')
-        ..add(serializers.serialize(object.description,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.isFavourite != null) {
+    value = object.isFavourite;
+    if (value != null) {
       result
         ..add('isFavourite')
-        ..add(serializers.serialize(object.isFavourite,
-            specifiedType: const FullType(bool)));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
     }
-    if (object.siteUrl != null) {
+    value = object.siteUrl;
+    if (value != null) {
       result
         ..add('siteUrl')
-        ..add(serializers.serialize(object.siteUrl,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.medias != null) {
+    value = object.medias;
+    if (value != null) {
       result
         ..add('medias')
-        ..add(serializers.serialize(object.medias,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(
                 List, const [const FullType(AnilistCharacter)])));
     }
-    if (object.favourites != null) {
+    value = object.favourites;
+    if (value != null) {
       result
         ..add('favourites')
-        ..add(serializers.serialize(object.favourites,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
     return result;
   }
@@ -82,7 +89,7 @@ class _$AnilistCharacterSerializer
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object value = iterator.current;
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
@@ -127,24 +134,24 @@ class _$AnilistCharacterSerializer
 
 class _$AnilistCharacter extends AnilistCharacter {
   @override
-  final int id;
+  final int? id;
   @override
-  final AnilistName name;
+  final AnilistName? name;
   @override
-  final AnilistImage image;
+  final AnilistImage? image;
   @override
-  final String description;
+  final String? description;
   @override
-  final bool isFavourite;
+  final bool? isFavourite;
   @override
-  final String siteUrl;
+  final String? siteUrl;
   @override
-  final List<AnilistCharacter> medias;
+  final List<AnilistCharacter>? medias;
   @override
-  final int favourites;
+  final int? favourites;
 
   factory _$AnilistCharacter(
-          [void Function(AnilistCharacterBuilder) updates]) =>
+          [void Function(AnilistCharacterBuilder)? updates]) =>
       (new AnilistCharacterBuilder()..update(updates)).build();
 
   _$AnilistCharacter._(
@@ -213,52 +220,53 @@ class _$AnilistCharacter extends AnilistCharacter {
 
 class AnilistCharacterBuilder
     implements Builder<AnilistCharacter, AnilistCharacterBuilder> {
-  _$AnilistCharacter _$v;
+  _$AnilistCharacter? _$v;
 
-  int _id;
-  int get id => _$this._id;
-  set id(int id) => _$this._id = id;
+  int? _id;
+  int? get id => _$this._id;
+  set id(int? id) => _$this._id = id;
 
-  AnilistNameBuilder _name;
+  AnilistNameBuilder? _name;
   AnilistNameBuilder get name => _$this._name ??= new AnilistNameBuilder();
-  set name(AnilistNameBuilder name) => _$this._name = name;
+  set name(AnilistNameBuilder? name) => _$this._name = name;
 
-  AnilistImageBuilder _image;
+  AnilistImageBuilder? _image;
   AnilistImageBuilder get image => _$this._image ??= new AnilistImageBuilder();
-  set image(AnilistImageBuilder image) => _$this._image = image;
+  set image(AnilistImageBuilder? image) => _$this._image = image;
 
-  String _description;
-  String get description => _$this._description;
-  set description(String description) => _$this._description = description;
+  String? _description;
+  String? get description => _$this._description;
+  set description(String? description) => _$this._description = description;
 
-  bool _isFavourite;
-  bool get isFavourite => _$this._isFavourite;
-  set isFavourite(bool isFavourite) => _$this._isFavourite = isFavourite;
+  bool? _isFavourite;
+  bool? get isFavourite => _$this._isFavourite;
+  set isFavourite(bool? isFavourite) => _$this._isFavourite = isFavourite;
 
-  String _siteUrl;
-  String get siteUrl => _$this._siteUrl;
-  set siteUrl(String siteUrl) => _$this._siteUrl = siteUrl;
+  String? _siteUrl;
+  String? get siteUrl => _$this._siteUrl;
+  set siteUrl(String? siteUrl) => _$this._siteUrl = siteUrl;
 
-  List<AnilistCharacter> _medias;
-  List<AnilistCharacter> get medias => _$this._medias;
-  set medias(List<AnilistCharacter> medias) => _$this._medias = medias;
+  List<AnilistCharacter>? _medias;
+  List<AnilistCharacter>? get medias => _$this._medias;
+  set medias(List<AnilistCharacter>? medias) => _$this._medias = medias;
 
-  int _favourites;
-  int get favourites => _$this._favourites;
-  set favourites(int favourites) => _$this._favourites = favourites;
+  int? _favourites;
+  int? get favourites => _$this._favourites;
+  set favourites(int? favourites) => _$this._favourites = favourites;
 
   AnilistCharacterBuilder();
 
   AnilistCharacterBuilder get _$this {
-    if (_$v != null) {
-      _id = _$v.id;
-      _name = _$v.name?.toBuilder();
-      _image = _$v.image?.toBuilder();
-      _description = _$v.description;
-      _isFavourite = _$v.isFavourite;
-      _siteUrl = _$v.siteUrl;
-      _medias = _$v.medias;
-      _favourites = _$v.favourites;
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _name = $v.name?.toBuilder();
+      _image = $v.image?.toBuilder();
+      _description = $v.description;
+      _isFavourite = $v.isFavourite;
+      _siteUrl = $v.siteUrl;
+      _medias = $v.medias;
+      _favourites = $v.favourites;
       _$v = null;
     }
     return this;
@@ -266,14 +274,12 @@ class AnilistCharacterBuilder
 
   @override
   void replace(AnilistCharacter other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AnilistCharacter;
   }
 
   @override
-  void update(void Function(AnilistCharacterBuilder) updates) {
+  void update(void Function(AnilistCharacterBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -292,7 +298,7 @@ class AnilistCharacterBuilder
               medias: medias,
               favourites: favourites);
     } catch (_) {
-      String _$failedField;
+      late String _$failedField;
       try {
         _$failedField = 'name';
         _name?.build();

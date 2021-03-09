@@ -12,14 +12,13 @@ abstract class AnilistQueryResult<E>
     implements Built<AnilistQueryResult<E>, AnilistQueryResultBuilder<E>> {
   static Serializer<AnilistQueryResult> get serializer =>
       _$anilistQueryResultSerializer;
-  @nullable
-  AnilistPageInfo get pageInfo;
-  @nullable
-  ListBuilder<E> get results;
+  AnilistPageInfo? get pageInfo;
+  ListBuilder<E>? get results;
 
   AnilistQueryResult._();
-  factory AnilistQueryResult([updates(AnilistQueryResultBuilder<E> b)]) =>
-      new _$AnilistQueryResult<E>((b) => b..update(updates));
+  factory AnilistQueryResult(
+          [void Function(AnilistQueryResultBuilder) updates]) =
+      _$AnilistQueryResult;
 
   static const FullType specifiedType =
       const FullType(BuiltList, const [const FullType(AnilistQueryResult)]);
@@ -27,11 +26,6 @@ abstract class AnilistQueryResult<E>
       jsonEncode(serializers.serialize(list, specifiedType: specifiedType));
 
   static BuiltList<AnilistQueryResult> fromJsonList(String json) =>
-      serializers.deserialize(jsonDecode(json), specifiedType: specifiedType);
-
-  static AnilistQueryResult fromJson(Map<String, dynamic> json) => serializers
-      .deserialize(json, specifiedType: FullType(AnilistQueryResult));
-
-  static AnilistQueryResult toJson(AnilistQueryResult media) =>
-      serializers.serialize(media, specifiedType: FullType(AnilistQueryResult));
+      serializers.deserialize(jsonDecode(json), specifiedType: specifiedType)
+          as BuiltList<AnilistQueryResult>;
 }

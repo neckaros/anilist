@@ -11,12 +11,9 @@ part 'anilist_title.g.dart';
 abstract class AnilistTitle
     implements Built<AnilistTitle, AnilistTitleBuilder> {
   static Serializer<AnilistTitle> get serializer => _$anilistTitleSerializer;
-  @nullable
-  String get romaji;
-  @nullable
-  String get english;
-  @nullable
-  String get native;
+  String? get romaji;
+  String? get english;
+  String? get native;
 
   static const FullType specifiedType =
       const FullType(BuiltList, const [const FullType(AnilistTitle)]);
@@ -24,8 +21,10 @@ abstract class AnilistTitle
       jsonEncode(serializers.serialize(list, specifiedType: specifiedType));
 
   static BuiltList<AnilistTitle> fromJson(String json) =>
-      serializers.deserialize(jsonDecode(json), specifiedType: specifiedType);
+      serializers.deserialize(jsonDecode(json), specifiedType: specifiedType)
+          as BuiltList<AnilistTitle>;
   AnilistTitle._();
-  factory AnilistTitle([updates(AnilistTitleBuilder b)]) =>
-      new _$AnilistTitle((b) => b..update(updates));
+
+  factory AnilistTitle([void Function(AnilistTitleBuilder) updates]) =
+      _$AnilistTitle;
 }

@@ -12,26 +12,18 @@ abstract class AnilistCharacter
     implements Built<AnilistCharacter, AnilistCharacterBuilder> {
   static Serializer<AnilistCharacter> get serializer =>
       _$anilistCharacterSerializer;
-  @nullable
-  int get id;
-  @nullable
-  AnilistName get name;
-  @nullable
-  AnilistImage get image;
-  @nullable
-  String get description;
-  @nullable
-  bool get isFavourite;
-  @nullable
-  String get siteUrl;
-  @nullable
-  List<AnilistCharacter> get medias;
-  @nullable
-  int get favourites;
+  int? get id;
+  AnilistName? get name;
+  AnilistImage? get image;
+  String? get description;
+  bool? get isFavourite;
+  String? get siteUrl;
+  List<AnilistCharacter>? get medias;
+  int? get favourites;
 
   AnilistCharacter._();
-  factory AnilistCharacter([updates(AnilistCharacterBuilder b)]) =>
-      new _$AnilistCharacter((b) => b..update(updates));
+  factory AnilistCharacter([void Function(AnilistCharacterBuilder) updates]) =
+      _$AnilistCharacter;
 
   static const FullType specifiedType =
       const FullType(BuiltList, const [const FullType(AnilistCharacter)]);
@@ -39,11 +31,14 @@ abstract class AnilistCharacter
       jsonEncode(serializers.serialize(list, specifiedType: specifiedType));
 
   static BuiltList<AnilistCharacter> fromJsonList(List<dynamic> json) =>
-      serializers.deserialize(json, specifiedType: specifiedType);
+      serializers.deserialize(json, specifiedType: specifiedType)
+          as BuiltList<AnilistCharacter>;
 
   static AnilistCharacter fromJson(Map<String, dynamic> json) =>
-      serializers.deserialize(json, specifiedType: FullType(AnilistCharacter));
+      serializers.deserialize(json, specifiedType: FullType(AnilistCharacter))
+          as AnilistCharacter;
 
-  static AnilistCharacter toJson(AnilistCharacter media) =>
-      serializers.serialize(media, specifiedType: FullType(AnilistCharacter));
+  static String toJson(AnilistCharacter media) =>
+      serializers.serialize(media, specifiedType: FullType(AnilistCharacter))
+          as String;
 }

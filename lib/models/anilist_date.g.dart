@@ -18,23 +18,24 @@ class _$AnilistDateSerializer implements StructuredSerializer<AnilistDate> {
   Iterable<Object> serialize(Serializers serializers, AnilistDate object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[];
-    if (object.year != null) {
+    Object? value;
+    value = object.year;
+    if (value != null) {
       result
         ..add('year')
-        ..add(serializers.serialize(object.year,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.month != null) {
+    value = object.month;
+    if (value != null) {
       result
         ..add('month')
-        ..add(serializers.serialize(object.month,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    if (object.day != null) {
+    value = object.day;
+    if (value != null) {
       result
         ..add('day')
-        ..add(serializers.serialize(object.day,
-            specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
     return result;
   }
@@ -48,7 +49,7 @@ class _$AnilistDateSerializer implements StructuredSerializer<AnilistDate> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object value = iterator.current;
       switch (key) {
         case 'year':
           result.year = serializers.deserialize(value,
@@ -71,13 +72,13 @@ class _$AnilistDateSerializer implements StructuredSerializer<AnilistDate> {
 
 class _$AnilistDate extends AnilistDate {
   @override
-  final int year;
+  final int? year;
   @override
-  final int month;
+  final int? month;
   @override
-  final int day;
+  final int? day;
 
-  factory _$AnilistDate([void Function(AnilistDateBuilder) updates]) =>
+  factory _$AnilistDate([void Function(AnilistDateBuilder)? updates]) =>
       (new AnilistDateBuilder()..update(updates)).build();
 
   _$AnilistDate._({this.year, this.month, this.day}) : super._();
@@ -114,27 +115,28 @@ class _$AnilistDate extends AnilistDate {
 }
 
 class AnilistDateBuilder implements Builder<AnilistDate, AnilistDateBuilder> {
-  _$AnilistDate _$v;
+  _$AnilistDate? _$v;
 
-  int _year;
-  int get year => _$this._year;
-  set year(int year) => _$this._year = year;
+  int? _year;
+  int? get year => _$this._year;
+  set year(int? year) => _$this._year = year;
 
-  int _month;
-  int get month => _$this._month;
-  set month(int month) => _$this._month = month;
+  int? _month;
+  int? get month => _$this._month;
+  set month(int? month) => _$this._month = month;
 
-  int _day;
-  int get day => _$this._day;
-  set day(int day) => _$this._day = day;
+  int? _day;
+  int? get day => _$this._day;
+  set day(int? day) => _$this._day = day;
 
   AnilistDateBuilder();
 
   AnilistDateBuilder get _$this {
-    if (_$v != null) {
-      _year = _$v.year;
-      _month = _$v.month;
-      _day = _$v.day;
+    final $v = _$v;
+    if ($v != null) {
+      _year = $v.year;
+      _month = $v.month;
+      _day = $v.day;
       _$v = null;
     }
     return this;
@@ -142,14 +144,12 @@ class AnilistDateBuilder implements Builder<AnilistDate, AnilistDateBuilder> {
 
   @override
   void replace(AnilistDate other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AnilistDate;
   }
 
   @override
-  void update(void Function(AnilistDateBuilder) updates) {
+  void update(void Function(AnilistDateBuilder)? updates) {
     if (updates != null) updates(this);
   }
 

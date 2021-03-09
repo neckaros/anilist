@@ -19,28 +19,33 @@ class _$AnilistImageSerializer implements StructuredSerializer<AnilistImage> {
   Iterable<Object> serialize(Serializers serializers, AnilistImage object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[];
-    if (object.extraLarge != null) {
+    Object? value;
+    value = object.extraLarge;
+    if (value != null) {
       result
         ..add('extraLarge')
-        ..add(serializers.serialize(object.extraLarge,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.large != null) {
+    value = object.large;
+    if (value != null) {
       result
         ..add('large')
-        ..add(serializers.serialize(object.large,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.medium != null) {
+    value = object.medium;
+    if (value != null) {
       result
         ..add('medium')
-        ..add(serializers.serialize(object.medium,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.color != null) {
+    value = object.color;
+    if (value != null) {
       result
         ..add('color')
-        ..add(serializers.serialize(object.color,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
     return result;
@@ -55,7 +60,7 @@ class _$AnilistImageSerializer implements StructuredSerializer<AnilistImage> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object value = iterator.current;
       switch (key) {
         case 'extraLarge':
           result.extraLarge = serializers.deserialize(value,
@@ -82,15 +87,15 @@ class _$AnilistImageSerializer implements StructuredSerializer<AnilistImage> {
 
 class _$AnilistImage extends AnilistImage {
   @override
-  final String extraLarge;
+  final String? extraLarge;
   @override
-  final String large;
+  final String? large;
   @override
-  final String medium;
+  final String? medium;
   @override
-  final String color;
+  final String? color;
 
-  factory _$AnilistImage([void Function(AnilistImageBuilder) updates]) =>
+  factory _$AnilistImage([void Function(AnilistImageBuilder)? updates]) =>
       (new AnilistImageBuilder()..update(updates)).build();
 
   _$AnilistImage._({this.extraLarge, this.large, this.medium, this.color})
@@ -133,32 +138,33 @@ class _$AnilistImage extends AnilistImage {
 
 class AnilistImageBuilder
     implements Builder<AnilistImage, AnilistImageBuilder> {
-  _$AnilistImage _$v;
+  _$AnilistImage? _$v;
 
-  String _extraLarge;
-  String get extraLarge => _$this._extraLarge;
-  set extraLarge(String extraLarge) => _$this._extraLarge = extraLarge;
+  String? _extraLarge;
+  String? get extraLarge => _$this._extraLarge;
+  set extraLarge(String? extraLarge) => _$this._extraLarge = extraLarge;
 
-  String _large;
-  String get large => _$this._large;
-  set large(String large) => _$this._large = large;
+  String? _large;
+  String? get large => _$this._large;
+  set large(String? large) => _$this._large = large;
 
-  String _medium;
-  String get medium => _$this._medium;
-  set medium(String medium) => _$this._medium = medium;
+  String? _medium;
+  String? get medium => _$this._medium;
+  set medium(String? medium) => _$this._medium = medium;
 
-  String _color;
-  String get color => _$this._color;
-  set color(String color) => _$this._color = color;
+  String? _color;
+  String? get color => _$this._color;
+  set color(String? color) => _$this._color = color;
 
   AnilistImageBuilder();
 
   AnilistImageBuilder get _$this {
-    if (_$v != null) {
-      _extraLarge = _$v.extraLarge;
-      _large = _$v.large;
-      _medium = _$v.medium;
-      _color = _$v.color;
+    final $v = _$v;
+    if ($v != null) {
+      _extraLarge = $v.extraLarge;
+      _large = $v.large;
+      _medium = $v.medium;
+      _color = $v.color;
       _$v = null;
     }
     return this;
@@ -166,14 +172,12 @@ class AnilistImageBuilder
 
   @override
   void replace(AnilistImage other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AnilistImage;
   }
 
   @override
-  void update(void Function(AnilistImageBuilder) updates) {
+  void update(void Function(AnilistImageBuilder)? updates) {
     if (updates != null) updates(this);
   }
 

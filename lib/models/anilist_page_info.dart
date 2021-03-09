@@ -11,20 +11,15 @@ abstract class AnilistPageInfo
     implements Built<AnilistPageInfo, AnilistPageInfoBuilder> {
   static Serializer<AnilistPageInfo> get serializer =>
       _$anilistPageInfoSerializer;
-  @nullable
-  int get total;
-  @nullable
-  int get perPage;
-  @nullable
-  int get currentPage;
-  @nullable
-  int get lastPage;
-  @nullable
-  bool get hasNextPage;
+  int? get total;
+  int? get perPage;
+  int? get currentPage;
+  int? get lastPage;
+  bool? get hasNextPage;
 
   AnilistPageInfo._();
-  factory AnilistPageInfo([updates(AnilistPageInfoBuilder b)]) =>
-      new _$AnilistPageInfo((b) => b..update(updates));
+  factory AnilistPageInfo([void Function(AnilistPageInfoBuilder) updates]) =
+      _$AnilistPageInfo;
 
   static const FullType specifiedType =
       const FullType(BuiltList, const [const FullType(AnilistPageInfo)]);
@@ -32,11 +27,14 @@ abstract class AnilistPageInfo
       jsonEncode(serializers.serialize(list, specifiedType: specifiedType));
 
   static BuiltList<AnilistPageInfo> fromJsonList(String json) =>
-      serializers.deserialize(jsonDecode(json), specifiedType: specifiedType);
+      serializers.deserialize(jsonDecode(json), specifiedType: specifiedType)
+          as BuiltList<AnilistPageInfo>;
 
   static AnilistPageInfo fromJson(Map<String, dynamic> json) =>
-      serializers.deserialize(json, specifiedType: FullType(AnilistPageInfo));
+      serializers.deserialize(json, specifiedType: FullType(AnilistPageInfo))
+          as AnilistPageInfo;
 
-  static AnilistPageInfo toJson(AnilistPageInfo media) =>
-      serializers.serialize(media, specifiedType: FullType(AnilistPageInfo));
+  static String toJson(AnilistPageInfo pageInfo) =>
+      serializers.serialize(pageInfo, specifiedType: FullType(AnilistPageInfo))
+          as String;
 }
