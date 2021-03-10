@@ -17,9 +17,9 @@ class _$AnilistTrailerSerializer
   final String wireName = 'AnilistTrailer';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, AnilistTrailer object,
+  Iterable<Object?> serialize(Serializers serializers, AnilistTrailer object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[];
+    final result = <Object?>[];
     Object? value;
     value = object.id;
     if (value != null) {
@@ -47,7 +47,7 @@ class _$AnilistTrailerSerializer
 
   @override
   AnilistTrailer deserialize(
-      Serializers serializers, Iterable<Object> serialized,
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new AnilistTrailerBuilder();
 
@@ -55,7 +55,7 @@ class _$AnilistTrailerSerializer
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final Object value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,

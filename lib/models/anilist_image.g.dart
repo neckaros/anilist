@@ -16,9 +16,9 @@ class _$AnilistImageSerializer implements StructuredSerializer<AnilistImage> {
   final String wireName = 'AnilistImage';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, AnilistImage object,
+  Iterable<Object?> serialize(Serializers serializers, AnilistImage object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[];
+    final result = <Object?>[];
     Object? value;
     value = object.extraLarge;
     if (value != null) {
@@ -52,7 +52,8 @@ class _$AnilistImageSerializer implements StructuredSerializer<AnilistImage> {
   }
 
   @override
-  AnilistImage deserialize(Serializers serializers, Iterable<Object> serialized,
+  AnilistImage deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new AnilistImageBuilder();
 
@@ -60,7 +61,7 @@ class _$AnilistImageSerializer implements StructuredSerializer<AnilistImage> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final Object value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'extraLarge':
           result.extraLarge = serializers.deserialize(value,

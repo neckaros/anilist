@@ -16,9 +16,9 @@ class _$AnilistStaffSerializer implements StructuredSerializer<AnilistStaff> {
   final String wireName = 'AnilistStaff';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, AnilistStaff object,
+  Iterable<Object?> serialize(Serializers serializers, AnilistStaff object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[];
+    final result = <Object?>[];
     Object? value;
     value = object.id;
     if (value != null) {
@@ -91,7 +91,8 @@ class _$AnilistStaffSerializer implements StructuredSerializer<AnilistStaff> {
   }
 
   @override
-  AnilistStaff deserialize(Serializers serializers, Iterable<Object> serialized,
+  AnilistStaff deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new AnilistStaffBuilder();
 
@@ -99,7 +100,7 @@ class _$AnilistStaffSerializer implements StructuredSerializer<AnilistStaff> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final Object value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
@@ -107,7 +108,7 @@ class _$AnilistStaffSerializer implements StructuredSerializer<AnilistStaff> {
           break;
         case 'name':
           result.name.replace(serializers.deserialize(value,
-              specifiedType: const FullType(AnilistName)) as AnilistName);
+              specifiedType: const FullType(AnilistName))! as AnilistName);
           break;
         case 'language':
           result.language = serializers.deserialize(value,
@@ -115,7 +116,7 @@ class _$AnilistStaffSerializer implements StructuredSerializer<AnilistStaff> {
           break;
         case 'image':
           result.image.replace(serializers.deserialize(value,
-              specifiedType: const FullType(AnilistImage)) as AnilistImage);
+              specifiedType: const FullType(AnilistImage))! as AnilistImage);
           break;
         case 'description':
           result.description = serializers.deserialize(value,
@@ -130,14 +131,14 @@ class _$AnilistStaffSerializer implements StructuredSerializer<AnilistStaff> {
               specifiedType: const FullType(AnilistConnection, const [
                 const FullType(AnilistMedia),
                 const FullType(AnilistMedia)
-              ])) as AnilistConnection<AnilistMedia, AnilistMedia>);
+              ]))! as AnilistConnection<AnilistMedia, AnilistMedia>);
           break;
         case 'characters':
           result.characters.replace(serializers.deserialize(value,
               specifiedType: const FullType(AnilistConnection, const [
                 const FullType(AnilistCharacter),
                 const FullType(AnilistCharacter)
-              ])) as AnilistConnection<AnilistCharacter, AnilistCharacter>);
+              ]))! as AnilistConnection<AnilistCharacter, AnilistCharacter>);
           break;
         case 'favourites':
           result.favourites = serializers.deserialize(value,

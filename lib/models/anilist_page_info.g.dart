@@ -17,9 +17,9 @@ class _$AnilistPageInfoSerializer
   final String wireName = 'AnilistPageInfo';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, AnilistPageInfo object,
+  Iterable<Object?> serialize(Serializers serializers, AnilistPageInfo object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[];
+    final result = <Object?>[];
     Object? value;
     value = object.total;
     if (value != null) {
@@ -57,7 +57,7 @@ class _$AnilistPageInfoSerializer
 
   @override
   AnilistPageInfo deserialize(
-      Serializers serializers, Iterable<Object> serialized,
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new AnilistPageInfoBuilder();
 
@@ -65,7 +65,7 @@ class _$AnilistPageInfoSerializer
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final Object value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'total':
           result.total = serializers.deserialize(value,

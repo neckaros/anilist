@@ -16,9 +16,9 @@ class _$AnilistTitleSerializer implements StructuredSerializer<AnilistTitle> {
   final String wireName = 'AnilistTitle';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, AnilistTitle object,
+  Iterable<Object?> serialize(Serializers serializers, AnilistTitle object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[];
+    final result = <Object?>[];
     Object? value;
     value = object.romaji;
     if (value != null) {
@@ -45,7 +45,8 @@ class _$AnilistTitleSerializer implements StructuredSerializer<AnilistTitle> {
   }
 
   @override
-  AnilistTitle deserialize(Serializers serializers, Iterable<Object> serialized,
+  AnilistTitle deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new AnilistTitleBuilder();
 
@@ -53,7 +54,7 @@ class _$AnilistTitleSerializer implements StructuredSerializer<AnilistTitle> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final Object value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'romaji':
           result.romaji = serializers.deserialize(value,

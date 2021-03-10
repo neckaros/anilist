@@ -15,9 +15,9 @@ class _$AnilistNameSerializer implements StructuredSerializer<AnilistName> {
   final String wireName = 'AnilistName';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, AnilistName object,
+  Iterable<Object?> serialize(Serializers serializers, AnilistName object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[];
+    final result = <Object?>[];
     Object? value;
     value = object.first;
     if (value != null) {
@@ -59,7 +59,7 @@ class _$AnilistNameSerializer implements StructuredSerializer<AnilistName> {
   }
 
   @override
-  AnilistName deserialize(Serializers serializers, Iterable<Object> serialized,
+  AnilistName deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new AnilistNameBuilder();
 
@@ -67,7 +67,7 @@ class _$AnilistNameSerializer implements StructuredSerializer<AnilistName> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final Object value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'first':
           result.first = serializers.deserialize(value,
@@ -87,8 +87,8 @@ class _$AnilistNameSerializer implements StructuredSerializer<AnilistName> {
           break;
         case 'alternative':
           result.alternative.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(String)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(String)]))!
               as BuiltList<Object>);
           break;
       }

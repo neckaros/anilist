@@ -17,9 +17,9 @@ class _$AnilistCharacterSerializer
   final String wireName = 'AnilistCharacter';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, AnilistCharacter object,
+  Iterable<Object?> serialize(Serializers serializers, AnilistCharacter object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[];
+    final result = <Object?>[];
     Object? value;
     value = object.id;
     if (value != null) {
@@ -81,7 +81,7 @@ class _$AnilistCharacterSerializer
 
   @override
   AnilistCharacter deserialize(
-      Serializers serializers, Iterable<Object> serialized,
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new AnilistCharacterBuilder();
 
@@ -89,7 +89,7 @@ class _$AnilistCharacterSerializer
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final Object value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
@@ -97,11 +97,11 @@ class _$AnilistCharacterSerializer
           break;
         case 'name':
           result.name.replace(serializers.deserialize(value,
-              specifiedType: const FullType(AnilistName)) as AnilistName);
+              specifiedType: const FullType(AnilistName))! as AnilistName);
           break;
         case 'image':
           result.image.replace(serializers.deserialize(value,
-              specifiedType: const FullType(AnilistImage)) as AnilistImage);
+              specifiedType: const FullType(AnilistImage))! as AnilistImage);
           break;
         case 'description':
           result.description = serializers.deserialize(value,

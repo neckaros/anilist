@@ -15,9 +15,9 @@ class _$AnilistTagSerializer implements StructuredSerializer<AnilistTag> {
   final String wireName = 'AnilistTag';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, AnilistTag object,
+  Iterable<Object?> serialize(Serializers serializers, AnilistTag object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[];
+    final result = <Object?>[];
     Object? value;
     value = object.id;
     if (value != null) {
@@ -77,7 +77,7 @@ class _$AnilistTagSerializer implements StructuredSerializer<AnilistTag> {
   }
 
   @override
-  AnilistTag deserialize(Serializers serializers, Iterable<Object> serialized,
+  AnilistTag deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new AnilistTagBuilder();
 
@@ -85,7 +85,7 @@ class _$AnilistTagSerializer implements StructuredSerializer<AnilistTag> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final Object value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,

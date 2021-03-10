@@ -6,19 +6,19 @@ part of 'anilist_connection.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<AnilistConnection<Object, Object>> _$anilistConnectionSerializer =
+Serializer<AnilistConnection<Object?, Object?>> _$anilistConnectionSerializer =
     new _$AnilistConnectionSerializer();
 
 class _$AnilistConnectionSerializer
-    implements StructuredSerializer<AnilistConnection<Object, Object>> {
+    implements StructuredSerializer<AnilistConnection<Object?, Object?>> {
   @override
   final Iterable<Type> types = const [AnilistConnection, _$AnilistConnection];
   @override
   final String wireName = 'AnilistConnection';
 
   @override
-  Iterable<Object> serialize(
-      Serializers serializers, AnilistConnection<Object, Object> object,
+  Iterable<Object?> serialize(
+      Serializers serializers, AnilistConnection<Object?, Object?> object,
       {FullType specifiedType = FullType.unspecified}) {
     final isUnderspecified =
         specifiedType.isUnspecified || specifiedType.parameters.isEmpty;
@@ -28,7 +28,7 @@ class _$AnilistConnectionSerializer
     final parameterE =
         isUnderspecified ? FullType.object : specifiedType.parameters[1];
 
-    final result = <Object>[];
+    final result = <Object?>[];
     Object? value;
     value = object.edges;
     if (value != null) {
@@ -55,8 +55,8 @@ class _$AnilistConnectionSerializer
   }
 
   @override
-  AnilistConnection<Object, Object> deserialize(
-      Serializers serializers, Iterable<Object> serialized,
+  AnilistConnection<Object?, Object?> deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final isUnderspecified =
         specifiedType.isUnspecified || specifiedType.parameters.isEmpty;
@@ -67,24 +67,24 @@ class _$AnilistConnectionSerializer
         isUnderspecified ? FullType.object : specifiedType.parameters[1];
 
     final result = isUnderspecified
-        ? new AnilistConnectionBuilder<Object, Object>()
+        ? new AnilistConnectionBuilder<Object?, Object?>()
         : serializers.newBuilder(specifiedType)
-            as AnilistConnectionBuilder<Object, Object>;
+            as AnilistConnectionBuilder<Object?, Object?>;
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final Object value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'edges':
           result.edges.replace(serializers.deserialize(value,
-                  specifiedType: new FullType(BuiltList, [parameterE]))
+                  specifiedType: new FullType(BuiltList, [parameterE]))!
               as BuiltList<Object>);
           break;
         case 'nodes':
           result.nodes.replace(serializers.deserialize(value,
-                  specifiedType: new FullType(BuiltList, [parameterN]))
+                  specifiedType: new FullType(BuiltList, [parameterN]))!
               as BuiltList<Object>);
           break;
         case 'pageInfo':

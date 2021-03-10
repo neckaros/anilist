@@ -16,9 +16,9 @@ class _$AnilistMediaSerializer implements StructuredSerializer<AnilistMedia> {
   final String wireName = 'AnilistMedia';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, AnilistMedia object,
+  Iterable<Object?> serialize(Serializers serializers, AnilistMedia object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
+    final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
     ];
@@ -261,7 +261,8 @@ class _$AnilistMediaSerializer implements StructuredSerializer<AnilistMedia> {
   }
 
   @override
-  AnilistMedia deserialize(Serializers serializers, Iterable<Object> serialized,
+  AnilistMedia deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new AnilistMediaBuilder();
 
@@ -269,7 +270,7 @@ class _$AnilistMediaSerializer implements StructuredSerializer<AnilistMedia> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final Object value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
@@ -281,7 +282,7 @@ class _$AnilistMediaSerializer implements StructuredSerializer<AnilistMedia> {
           break;
         case 'title':
           result.title.replace(serializers.deserialize(value,
-              specifiedType: const FullType(AnilistTitle)) as AnilistTitle);
+              specifiedType: const FullType(AnilistTitle))! as AnilistTitle);
           break;
         case 'type':
           result.type = serializers.deserialize(value,
@@ -304,11 +305,11 @@ class _$AnilistMediaSerializer implements StructuredSerializer<AnilistMedia> {
           break;
         case 'startDate':
           result.startDate.replace(serializers.deserialize(value,
-              specifiedType: const FullType(AnilistDate)) as AnilistDate);
+              specifiedType: const FullType(AnilistDate))! as AnilistDate);
           break;
         case 'endDate':
           result.endDate.replace(serializers.deserialize(value,
-              specifiedType: const FullType(AnilistDate)) as AnilistDate);
+              specifiedType: const FullType(AnilistDate))! as AnilistDate);
           break;
         case 'season':
           result.season = serializers.deserialize(value,
@@ -358,7 +359,8 @@ class _$AnilistMediaSerializer implements StructuredSerializer<AnilistMedia> {
           break;
         case 'trailer':
           result.trailer.replace(serializers.deserialize(value,
-              specifiedType: const FullType(AnilistTrailer)) as AnilistTrailer);
+                  specifiedType: const FullType(AnilistTrailer))!
+              as AnilistTrailer);
           break;
         case 'updatedAt':
           result.updatedAt = serializers.deserialize(value,
@@ -366,7 +368,7 @@ class _$AnilistMediaSerializer implements StructuredSerializer<AnilistMedia> {
           break;
         case 'coverImage':
           result.coverImage.replace(serializers.deserialize(value,
-              specifiedType: const FullType(AnilistImage)) as AnilistImage);
+              specifiedType: const FullType(AnilistImage))! as AnilistImage);
           break;
         case 'bannerImage':
           result.bannerImage = serializers.deserialize(value,
@@ -375,13 +377,13 @@ class _$AnilistMediaSerializer implements StructuredSerializer<AnilistMedia> {
         case 'genres':
           result.genres.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltSet, const [const FullType(String)]))
+                      const FullType(BuiltSet, const [const FullType(String)]))!
               as BuiltSet<Object>);
           break;
         case 'synonyms':
           result.synonyms.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltSet, const [const FullType(String)]))
+                      const FullType(BuiltSet, const [const FullType(String)]))!
               as BuiltSet<Object>);
           break;
         case 'averageScore':
@@ -411,7 +413,7 @@ class _$AnilistMediaSerializer implements StructuredSerializer<AnilistMedia> {
         case 'tags':
           result.tags.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
-                      BuiltList, const [const FullType(AnilistTag)]))
+                      BuiltList, const [const FullType(AnilistTag)]))!
               as BuiltList<Object>);
           break;
         case 'characters':
@@ -419,14 +421,14 @@ class _$AnilistMediaSerializer implements StructuredSerializer<AnilistMedia> {
               specifiedType: const FullType(AnilistConnection, const [
                 const FullType(AnilistCharacter),
                 const FullType(AnilistCharacter)
-              ])) as AnilistConnection<AnilistCharacter, AnilistCharacter>);
+              ]))! as AnilistConnection<AnilistCharacter, AnilistCharacter>);
           break;
         case 'staff':
           result.staff.replace(serializers.deserialize(value,
               specifiedType: const FullType(AnilistConnection, const [
                 const FullType(AnilistStaff),
                 const FullType(AnilistStaff)
-              ])) as AnilistConnection<AnilistStaff, AnilistStaff>);
+              ]))! as AnilistConnection<AnilistStaff, AnilistStaff>);
           break;
       }
     }

@@ -6,19 +6,19 @@ part of 'anilist_query_result.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<AnilistQueryResult<Object>> _$anilistQueryResultSerializer =
+Serializer<AnilistQueryResult<Object?>> _$anilistQueryResultSerializer =
     new _$AnilistQueryResultSerializer();
 
 class _$AnilistQueryResultSerializer
-    implements StructuredSerializer<AnilistQueryResult<Object>> {
+    implements StructuredSerializer<AnilistQueryResult<Object?>> {
   @override
   final Iterable<Type> types = const [AnilistQueryResult, _$AnilistQueryResult];
   @override
   final String wireName = 'AnilistQueryResult';
 
   @override
-  Iterable<Object> serialize(
-      Serializers serializers, AnilistQueryResult<Object> object,
+  Iterable<Object?> serialize(
+      Serializers serializers, AnilistQueryResult<Object?> object,
       {FullType specifiedType = FullType.unspecified}) {
     final isUnderspecified =
         specifiedType.isUnspecified || specifiedType.parameters.isEmpty;
@@ -26,7 +26,7 @@ class _$AnilistQueryResultSerializer
     final parameterE =
         isUnderspecified ? FullType.object : specifiedType.parameters[0];
 
-    final result = <Object>[];
+    final result = <Object?>[];
     Object? value;
     value = object.pageInfo;
     if (value != null) {
@@ -46,8 +46,8 @@ class _$AnilistQueryResultSerializer
   }
 
   @override
-  AnilistQueryResult<Object> deserialize(
-      Serializers serializers, Iterable<Object> serialized,
+  AnilistQueryResult<Object?> deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final isUnderspecified =
         specifiedType.isUnspecified || specifiedType.parameters.isEmpty;
@@ -56,24 +56,24 @@ class _$AnilistQueryResultSerializer
         isUnderspecified ? FullType.object : specifiedType.parameters[0];
 
     final result = isUnderspecified
-        ? new AnilistQueryResultBuilder<Object>()
+        ? new AnilistQueryResultBuilder<Object?>()
         : serializers.newBuilder(specifiedType)
-            as AnilistQueryResultBuilder<Object>;
+            as AnilistQueryResultBuilder<Object?>;
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final Object value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'pageInfo':
           result.pageInfo.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(AnilistPageInfo))
+                  specifiedType: const FullType(AnilistPageInfo))!
               as AnilistPageInfo);
           break;
         case 'results':
           result.results.replace(serializers.deserialize(value,
-                  specifiedType: new FullType(BuiltList, [parameterE]))
+                  specifiedType: new FullType(BuiltList, [parameterE]))!
               as BuiltList<Object>);
           break;
       }

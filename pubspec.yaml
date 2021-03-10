@@ -1,6 +1,6 @@
 name: anilist
 description: A new Flutter package project.
-version: 2.0.0-NullSafety.1
+version: 2.0.0-NullSafety.2
 repository: https://github.com/neckaros/anilist
 
 environment:
@@ -8,7 +8,7 @@ environment:
 
 dependencies:
   #runners
-  built_value: ^8.0.0
+  built_value: ^8.0.2
   built_collection: ^5.0.0
 
   dio: ^4.0.0-beta7
@@ -19,8 +19,8 @@ dev_dependencies:
     sdk: flutter
   
   #runners
-  build_runner: ^1.7.2
-  built_value_generator: ^8.0.0 
+  build_runner: ^1.11.5
+  built_value_generator: ^8.0.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
